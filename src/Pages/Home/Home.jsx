@@ -1,5 +1,9 @@
+import SliderGenreBanner from "../../Components/Slider & Genre Banner/SliderGenreBanner";
+
 const Home = () => {
-    return ( <></> );
+    return ( 
+        <SliderGenreBanner/>
+    );
 }
  
 export default Home;
