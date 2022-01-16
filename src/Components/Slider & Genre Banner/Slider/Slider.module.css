@@ -1,0 +1,28 @@
+.sliderSlide{
+    height: 100%;
+    width: 50%;
+    position: relative;
+}
+.sliderSlide img{
+    width: 100%;
+    height: 400px;
+    display: block;
+}
+.sliderFooter{
+    width: 100%;
+    height: 50px;
+    
+    color: #dfdfdf;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 0 20px;
+
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.678);
+}
+.sliderFooter_detail span{
+    margin-left: 20px;
+}
