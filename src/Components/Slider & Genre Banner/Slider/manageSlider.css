@@ -1,24 +1,26 @@
-.slider{
+.slider_slideGenreBanner{
     width: 60%;
     height: auto;
     border-radius: 10px;
     overflow: hidden;
 }
-
-
-.slider .swiper-button-next {right: 4px;}
-.slider .swiper-button-prev {left: 4px;}
+.slider_slideGenreBanner:hover{
+    transform: scale(1.007);
+}
+.slider_slideGenreBanner .swiper-button-next {right: 4px;}
+.slider_slideGenreBanner .swiper-button-prev {left: 4px;}
    
 
-.slider .swiper-button-next::after,
-.slider .swiper-button-prev::after{
+.slider_slideGenreBanner .swiper-button-next::after,
+.slider_slideGenreBanner .swiper-button-prev::after{
     background-color: rgb(36, 35, 56); 
     padding: 25px  12px;
     font-size: 20px;
     color: white;
 }
-.slider .swiper-button-next::after{border-radius: 3px 0 0 3px;}
-.slider .swiper-button-prev::after{border-radius: 0px 3px 3px  0;}
+
+.slider_slideGenreBanner .swiper-button-next::after{border-radius: 3px 0 0 3px;}
+.slider_slideGenreBanner .swiper-button-prev::after{border-radius: 0px 3px 3px  0;}
     
     
 
