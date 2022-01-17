@@ -27,7 +27,7 @@ const BestSerialMiniSlider = () => {
                 <a href="/">The best series in 2021</a>
                 <AiFillCaretRight/>
             </div>
-            <Swiper slidesPerView={7} spaceBetween={5} navigation freeMode={true}  className="mySwiper">
+            <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}  className="mySwiper">
                
                 <SwiperSlide className={Styles.sliderSlideParent}>
                     <img className={Styles.sliderSlide} src="https://m.media-amazon.com/images/M/MV5BNzBhNDUzMmMtYzMyYi00NTJkLTg5OGYtYjAxMzMyNWM3YWE0XkEyXkFqcGdeQXVyMDM0MzU2NA@@._V1_.jpg"/>

@@ -27,7 +27,7 @@ const BestMovieMiniSlider = () => {
                 <a href="/">The best Movie in 2021</a>
                 <AiFillCaretRight/>
             </div>
-            <Swiper slidesPerView={7} spaceBetween={5} navigation freeMode={true}>
+            <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
                
                 <SwiperSlide className={Styles.sliderSlideParent}>
                     <img className={Styles.sliderSlide} src="https://m.media-amazon.com/images/M/MV5BYzVjYThmNDAtOTE1NC00YjQ2LTk4NWYtNTc4Yzc4OTRhYjllXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg"/>
