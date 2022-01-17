@@ -10,50 +10,50 @@ import './manageSlider.css'
 const Slider = () => {
     return (  
         <div className='slider_slideGenreBanner'>
-        <Swiper modules={[Navigation]} spaceBetween={0} slidesPerView={1} navigation>
-            <SwiperSlide className={Styles.sliderSlide}>
-            <img src='https://m.media-amazon.com/images/M/MV5BOGI0OGU4NDMtNjc0Zi00ODc1LTlhNTktYTliMjAzNWEzM2JmXkEyXkFqcGdeQXVyNjczOTE0MzM@._V1_.jpg'/>
+            <Swiper modules={[Navigation]} spaceBetween={0} slidesPerView={1} navigation>
+                <SwiperSlide className={Styles.sliderSlide}>
+                <img src='https://m.media-amazon.com/images/M/MV5BOGI0OGU4NDMtNjc0Zi00ODc1LTlhNTktYTliMjAzNWEzM2JmXkEyXkFqcGdeQXVyNjczOTE0MzM@._V1_.jpg'/>
 
-                <div className={Styles.sliderFooter}>
-                    <span>Title : Fast And Furios </span>
-                    
-                    <div className={Styles.sliderFooter_detail}>
-                        <span>Rating : 9.2</span>
-                        <span>Year : 2021</span>
-                        <span>Genre : Action</span>
+                    <div className={Styles.sliderFooter}>
+                        <span>Title : Fast And Furios </span>
+                        
+                        <div className={Styles.sliderFooter_detail}>
+                            <span>Rating : 9.2</span>
+                            <span>Year : 2021</span>
+                            <span>Genre : Action</span>
+                        </div>
+                        
                     </div>
-                    
-                </div>
-            </SwiperSlide>
-            <SwiperSlide className={Styles.sliderSlide}>
-                <img src='https://m.media-amazon.com/images/M/MV5BNjliN2E5YWYtODUyYy00Mjg0LWI3MTctM2RmYTFhOWYzMTQ2XkEyXkFqcGdeQXVyMjkwMjE3Mjk@._V1_.jpg'/>
-                <div className={Styles.sliderFooter}>
-                    <span>Title : Fast And Furios </span>
-                    
-                    <div className={Styles.sliderFooter_detail}>
-                        <span>Rating : 9.2</span>
-                        <span>Year : 2021</span>
-                        <span>Genre : Action</span>
+                </SwiperSlide>
+                <SwiperSlide className={Styles.sliderSlide}>
+                    <img src='https://m.media-amazon.com/images/M/MV5BNjliN2E5YWYtODUyYy00Mjg0LWI3MTctM2RmYTFhOWYzMTQ2XkEyXkFqcGdeQXVyMjkwMjE3Mjk@._V1_.jpg'/>
+                    <div className={Styles.sliderFooter}>
+                        <span>Title : Fast And Furios </span>
+                        
+                        <div className={Styles.sliderFooter_detail}>
+                            <span>Rating : 9.2</span>
+                            <span>Year : 2021</span>
+                            <span>Genre : Action</span>
+                        </div>
+                        
                     </div>
-                    
-                </div>
-            </SwiperSlide>
-            <SwiperSlide className={Styles.sliderSlide}>
-            <img src='https://m.media-amazon.com/images/M/MV5BZjkwMjQ4MDYtNzNmYy00ODRlLWI1MTEtODFjZGE2ZjRkMmNjXkEyXkFqcGdeQXVyMjAwNDk0MDA@._V1_.jpg'/>
-                <div className={Styles.sliderFooter}>
-                    <span>Title : Fast And Furios </span>
-                    
-                    <div className={Styles.sliderFooter_detail}>
-                        <span>Rating : 9.2</span>
-                        <span>Year : 2021</span>
-                        <span>Genre : Action</span>
+                </SwiperSlide>
+                <SwiperSlide className={Styles.sliderSlide}>
+                <img src='https://m.media-amazon.com/images/M/MV5BZjkwMjQ4MDYtNzNmYy00ODRlLWI1MTEtODFjZGE2ZjRkMmNjXkEyXkFqcGdeQXVyMjAwNDk0MDA@._V1_.jpg'/>
+                    <div className={Styles.sliderFooter}>
+                        <span>Title : Fast And Furios </span>
+                        
+                        <div className={Styles.sliderFooter_detail}>
+                            <span>Rating : 9.2</span>
+                            <span>Year : 2021</span>
+                            <span>Genre : Action</span>
+                        </div>
+                        
                     </div>
-                    
-                </div>
-            </SwiperSlide>
+                </SwiperSlide>
 
-        </Swiper>
-    </div>
+            </Swiper>
+        </div>
     );
 }
  
