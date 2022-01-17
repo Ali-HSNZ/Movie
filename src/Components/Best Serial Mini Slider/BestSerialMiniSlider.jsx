@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import './BestSerialMiniSlider.css'
-import Styles from './BestSerialMiniSlider.module.css'
+import '../Mini Slider Style/MiniSlider.css'
+import Styles from '../Mini Slider Style/MiniSlider.module.css'
 
 import { AiFillCaretRight } from "react-icons/ai";
 
@@ -22,7 +22,7 @@ SwiperCore.use([FreeMode , Navigation]);
 
 const BestSerialMiniSlider = () => {
     return (  
-        <div className="slider_bestSerialMiniSlider">
+        <div className="slider_miniSlider">
             <div className={Styles.silderTitle}>
                 <a href="/">The best series in 2021</a>
                 <AiFillCaretRight/>
