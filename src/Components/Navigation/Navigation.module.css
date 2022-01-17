@@ -66,24 +66,20 @@
     display: flex;
     justify-content: flex-end;
 }
-.navLink{
+.navLink , .navLinkActive{
     color: #ffffff;
     font-family: "Open Sans light";
     font-size: 14px;
     text-decoration: none;
     padding: 7px 15px;
-    background-color: #374151;
     border-radius: 3px;
 }
 .navLink:hover , .navLinkActive:hover{
     transform: scale(1.030);
-
 } 
+.navLink{
+    background-color: #13161b;
+}
 .navLinkActive{
     background-color: none;
-    font-family: "Open Sans light";
-    font-size: 14px;
-    padding: 7px 15px;
-    text-decoration: none;
-    color:#ffffff;
 }
