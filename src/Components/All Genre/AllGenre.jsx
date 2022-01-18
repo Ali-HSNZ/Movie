@@ -153,7 +153,7 @@ const AllGenre = () => {
             </div>
 
             <div className={Styles.cover}>
-                <button>Load More</button>
+                <a href="/">Load More</a>
             </div>
         </div>
     );
