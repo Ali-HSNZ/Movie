@@ -1,3 +1,4 @@
+import AllGenre from "../../Components/All Genre/AllGenre";
 import BestComedyMiniSlider from "../../Components/Best Comedy Mini Slider/BestMovieMiniSlider";
 import BestMovieMiniSlider from "../../Components/Best Movie Mini Slider/BestMovieMiniSlider";
 import BestSerialMiniSlider from "../../Components/Best Serial Mini Slider/BestSerialMiniSlider";
@@ -12,6 +13,7 @@ const Home = () => {
             <BestMovieMiniSlider/>
             <TopMoviesRating/>
             <BestComedyMiniSlider/>
+            <AllGenre/>
         </>
     ); 
 }
