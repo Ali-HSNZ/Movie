@@ -10,7 +10,7 @@ import './manageSlider.css'
 const Slider = () => {
     return (  
         <div className='slider_slideGenreBanner'>
-            <Swiper modules={[Navigation]} spaceBetween={0} slidesPerView={1} navigation>
+            <Swiper spaceBetween={0} slidesPerView={1} navigation>
                 <SwiperSlide className={Styles.sliderSlide}>
                 <img src='https://m.media-amazon.com/images/M/MV5BOGI0OGU4NDMtNjc0Zi00ODc1LTlhNTktYTliMjAzNWEzM2JmXkEyXkFqcGdeQXVyNjczOTE0MzM@._V1_.jpg'/>
 
