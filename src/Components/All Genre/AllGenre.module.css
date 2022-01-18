@@ -28,18 +28,17 @@
     justify-content: center;
     align-items: flex-end;
 }
-.cover button{
+.cover a{
     padding: 13px 25px;
     margin-bottom: 20px;
     background-color: rgb(15, 15, 15);
     border-radius: 3px;
-    border: none;
-    outline: navajowhite;
+    text-decoration: none;
     color: white;
-    cursor: pointer;
+    font-size: 14px;
 }
-.cover button:hover{
-    transform: scale(1.020);
+.cover a:hover{
+    transform: scale(1.030);
     color: rgb(219, 219, 0);
 
 }
