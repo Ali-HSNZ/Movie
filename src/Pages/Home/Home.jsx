@@ -3,8 +3,10 @@ import BestAnimationMiniSlider from "../../Components/Best Animation Mini Slider
 import BestComedyMiniSlider from "../../Components/Best Comedy Mini Slider/BestMovieMiniSlider";
 import BestMovieMiniSlider from "../../Components/Best Movie Mini Slider/BestMovieMiniSlider";
 import BestSerialMiniSlider from "../../Components/Best Serial Mini Slider/BestSerialMiniSlider";
+import BestWarMovieMiniSlider from "../../Components/Best War Movies Mini Slider/BestWarMoviesMiniSlider";
 import SliderGenreBanner from "../../Components/Slider & Genre Banner/SliderGenreBanner";
 import TopMoviesRating from "../../Components/Top Movies Rating/TopMoviesRating";
+import TopRatedTvShow from "../../Components/Top Rated TV Shows/TopRatedTvShows";
 
 const Home = () => {
     return ( 
@@ -12,10 +14,12 @@ const Home = () => {
             <SliderGenreBanner/>
             <BestSerialMiniSlider/>
             <BestMovieMiniSlider/>
-            <TopMoviesRating/>
             <BestComedyMiniSlider/>
-            <AllGenre/>
+            <TopMoviesRating/>
             <BestAnimationMiniSlider/>
+            <TopRatedTvShow/>
+            <AllGenre/>
+            <BestWarMovieMiniSlider/>
         </>
     ); 
 }
