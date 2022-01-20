@@ -1,8 +1,13 @@
 import Styles from './Footer.module.css'
 const Footer = () => {
+    
+    const backToTop = () => {
+        window.scrollTo({top : 0 , behavior : 'smooth'})
+    }
+
     return (  
         <div className={Styles.parent}>
-            <button className={Styles.backToTop}>
+            <button className={Styles.backToTop} onClick={()=> backToTop()}>
                 <p>Back To Top</p>
             </button>
             <div className={Styles.footer}>
