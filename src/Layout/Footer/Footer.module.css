@@ -1,0 +1,119 @@
+.parent{
+    width: 100%;
+    height: auto;
+}
+.backToTop{
+    width: 100%;
+    height: 50px;
+    background-color: #3D3D3D;
+    outline: none;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+
+}
+.backToTop p {
+    color: #ffffff;
+    font-family: 'Open Sans Light';
+}
+.backToTop:hover p{
+    color: rgb(219, 219, 0);
+    font-weight: 700;
+}
+.footer{
+    width: 100%;
+    height: auto;
+    background-color: #1b1b1b;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.column{
+    width: 100%;
+    height: 100%;
+    margin: 0 ;
+}
+.columnTitle{
+    color: rgb(219, 219, 0);
+
+}
+.columnActions{
+    box-sizing: content-box;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.columnActions a {
+    background-color: #3D3D3D;
+    border: 1px solid #000000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: #c0c0c0;
+    cursor: pointer;
+    font-family: 'Open Sans light';
+}
+.columnActions a:hover {
+    transform: scale(1.015);
+    color: rgb(155, 155, 155);
+}   
+.inputGroup{
+    margin-top: 20px;
+    width: 94%;
+    height: auto;
+    margin-left: 20px;
+    display: flex;
+}
+
+.inputGroup input{
+    width: 100%;
+    height: 40px;
+    margin-right: 5px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    background-color: #3D3D3D;
+    border: 1px solid #000000;
+    padding: 0 10px;
+    font-size: 14px;
+    color: #ffffff;
+    font-family: 'Open Sans light';
+}
+.inputGroup button{
+    width: auto;
+    height: auto;
+    padding:  10px 30px;
+    background-color: rgb(219, 219, 0);
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.inputGroup button:hover{
+    transform: scale(1.020);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
