@@ -12,13 +12,12 @@
     cursor: pointer;
 
 }
+.backToTop:hover{
+    background-color: #333333;
+}
 .backToTop p {
     color: #ffffff;
-    font-family: 'Open Sans Light';
-}
-.backToTop:hover p{
-    color: rgb(219, 219, 0);
-    font-weight: 700;
+    font-family: iransansweb;
 }
 .footer{
     width: 100%;
