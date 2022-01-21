@@ -26,7 +26,6 @@ const BestSerialMiniSlider = () => {
 
     const [data , setData] = useState(null)
 
-
     // Fetching Top 250 Movies
     useEffect(()=>{
         const getData = async() =>{
@@ -34,14 +33,10 @@ const BestSerialMiniSlider = () => {
             const endPoint = "https://imdb-api.com/en/API/MostPopularTVs/k_t4uhs4c"
             await axios.get(endPoint)
             .then(response => setData(response.data.items.slice(0,20)))
-            // .then(response => console.log(response.data))
-
             .catch()
         }
         getData()
     },[])
-
-    console.log(data)
 
     return (  
         <div className="slider_miniSlider">
