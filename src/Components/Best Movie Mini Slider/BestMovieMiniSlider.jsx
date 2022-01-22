@@ -65,9 +65,9 @@ const BestMovieMiniSlider = () => {
             </div>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
                 {!dataMovie && <p style={{color:'#ffffff'}}>Loading...</p>}
-                {dataMovie.data && dataMovie.data.map(movie => {
+                {dataMovie.data && dataMovie.data.map((movie,index) => {
                     return(
-                        <SwiperSlide className={Styles.sliderSlideParent} key={movie.id}>
+                        <SwiperSlide className={Styles.sliderSlideParent} key={index}>
                             <img className={Styles.sliderSlide} src={`https://img.gs/knzwmsmxwd/268x215,quality=high/${movie.banner}`}/>
                         </SwiperSlide>
                     )
