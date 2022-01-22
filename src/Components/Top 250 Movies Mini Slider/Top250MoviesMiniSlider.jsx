@@ -32,7 +32,6 @@ const Top250MoviesMiniSlider = () => {
             .then(response => setData(response.data.items.slice(0,20)))
             .catch()
         }
-        getData()
     },[])
 
     return (  
