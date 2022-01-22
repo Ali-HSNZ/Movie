@@ -68,12 +68,12 @@ const BestComedyMiniSlider = () => {
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
                
                 {dataMovie.data.length === 0 && <p style={{color:'#ffffff'}}>Loading...</p>}
-                {dataMovie.data && dataMovie.data.map(movie => {
-                    return(
-                        <SwiperSlide className={Styles.sliderSlideParent} key={movie.id}>
-                            <img className={Styles.sliderSlide} src={`https://img.gs/knzwmsmxwd/268x215,quality=high/${movie.banner}`}/>
+                {dataMovie.data?.map((movie,index) => {
+                    return (
+                        <SwiperSlide className={Styles.sliderSlideParent} key={index}>
+                            <img className={Styles.sliderSlide} src={`https://img.gs/knzwmsmxwd/268x215,quality=high/${movie.banner}`} />
                         </SwiperSlide>
-                    )
+                    );
                 })}
                 
             </Swiper>
