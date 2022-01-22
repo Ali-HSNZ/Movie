@@ -70,7 +70,7 @@ const BestComedyMiniSlider = () => {
                 {dataMovie.data.length === 0 && <p style={{color:'#ffffff'}}>Loading...</p>}
                 {dataMovie.data && dataMovie.data.map(movie => {
                     return(
-                        <SwiperSlide className={Styles.sliderSlideParent}>
+                        <SwiperSlide className={Styles.sliderSlideParent} key={movie.id}>
                             <img className={Styles.sliderSlide} src={`https://img.gs/knzwmsmxwd/268x215,quality=high/${movie.banner}`}/>
                         </SwiperSlide>
                     )
