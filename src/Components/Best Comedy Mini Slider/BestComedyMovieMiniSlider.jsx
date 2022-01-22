@@ -13,14 +13,36 @@ import "swiper/css/free-mode"
 import SwiperCore, {
   FreeMode,Navigation
 } from 'swiper';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 // <==  Slider 
 
 SwiperCore.use([FreeMode , Navigation]);
 
-
-
 const BestComedyMiniSlider = () => {
+    const [data , setData] = useState(null)
+
+    
+    useEffect(()=>{
+        const getAllImdbCode = async() => {
+            const endPoint = "https://imdb8.p.rapidapi.com/title/get-popular-movies-by-genre"
+            await axios.get(endPoint , {params : {genre: '/chart/popular/genre/comedy'} ,   headers: {
+                'x-rapidapi-host': 'imdb8.p.rapidapi.com',
+                'x-rapidapi-key': '61398a6ee8msh0033ca9207b7556p1fdb09jsn1ea8d45f729a'
+              }})
+            .then(response => {
+                const  responseData =  response.data.slice(0,19)
+                const executedCode = responseData.map(e => e.replace("/title/",'').replace("/",''))
+                setData(executedCode)
+            })
+            .catch()     
+        }
+        
+
+
+    },[])
+
     return (  
         <div className="slider_miniSlider">
             <div className={Styles.silderTitle}>
