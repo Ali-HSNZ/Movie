@@ -21,10 +21,12 @@ import axios from "axios";
 SwiperCore.use([FreeMode , Navigation]);
 
 const BestComedyMiniSlider = () => {
-    const [data , setData] = useState(null)
+    const [dataMovie , setDataMovie] = useState({data : []})
 
     
     useEffect(()=>{
+        // Get Imdb movie id & map on id and get Movie by id
+
         const getAllImdbCode = async() => {
             const endPoint = "https://imdb8.p.rapidapi.com/title/get-popular-movies-by-genre"
             await axios.get(endPoint , {params : {genre: '/chart/popular/genre/comedy'} ,   headers: {
@@ -33,13 +35,23 @@ const BestComedyMiniSlider = () => {
               }})
             .then(response => {
                 const  responseData =  response.data.slice(0,19)
-                const executedCode = responseData.map(e => e.replace("/title/",'').replace("/",''))
-                setData(executedCode)
+                responseData.map(movieId => {
+                    const id = movieId.replace("/title/",'').replace("/",'')
+
+                    axios.get(`https://data-imdb1.p.rapidapi.com/movie/id/${id}/`,{headers : { 'x-rapidapi-host': 'data-imdb1.p.rapidapi.com','x-rapidapi-key': '61398a6ee8msh0033ca9207b7556p1fdb09jsn1ea8d45f729a'}})
+                    .then(function (response) {
+                        setDataMovie(prevMovie => ({data : [...prevMovie.data , response.data.results] }) )
+                    })
+                    .catch(function (error) {
+                        console.error(error);
+                    });
+
+                })
             })
             .catch()     
         }
+        // getAllImdbCode()
         
-
 
     },[])
 
