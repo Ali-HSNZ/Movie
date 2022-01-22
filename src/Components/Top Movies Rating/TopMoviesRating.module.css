@@ -14,42 +14,18 @@
     cursor: pointer;
 }
 .footer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top:10px;
-
-}
-.right{
-    width: 100%;
-    height: auto;
-
-    display: flex;
-    flex-direction: column;
-    padding-right: 5px;
+    width: 100%;height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(600px , 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    margin-top: 20px;
 }
 
-
-.left{
-    width: 100%;
-    height: auto;
-    padding-left: 5px;
-
-    display: flex;
-    flex-direction: column;
-}
-.itemParent{
-    width: 100%;
-    height: 90px;
-    background-color: black;
-    margin-top: 10px;
-    border-radius: 3px;
-    padding: 10px;
-}
 .item{
-    width: 100%;
-    height: 100%;
+    height: auto;
     background-color: rgb(20, 20, 20);
+    border: 10px solid #000000;
     border-radius: 3px;
     display: flex;
     flex-direction: row;
