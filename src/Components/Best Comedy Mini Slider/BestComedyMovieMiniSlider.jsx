@@ -62,7 +62,7 @@ const BestComedyMiniSlider = () => {
     return (  
         <div className="slider_miniSlider">
             <div className={Styles.silderTitle}>
-                <a href="/">The best Comedy Movie in 2021</a>
+                <a href="/">Best Comedy Movies</a>
                 <AiFillCaretRight/>
             </div>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
