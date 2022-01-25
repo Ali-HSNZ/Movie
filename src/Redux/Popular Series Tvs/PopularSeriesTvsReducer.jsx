@@ -52,16 +52,3 @@ const PopularSeriesTvs = createSlice({
     },
 })
 export const PopularSeriesTvsReducer = PopularSeriesTvs.reducer;
-
-
-
-
-
-
-
-
-
-
-
-
-
