@@ -14,10 +14,6 @@ const Slider = () => {
 
 const {data , loading , error} = useSelector(state => state.headSlider)
 
-    console.log("data : ",data)
-    console.log("loading : ",loading)
-    console.log("error : ",error)
-    console.log("------------------------------------------------------")
     const dispatch = useDispatch()
     
     useEffect(()=>{
