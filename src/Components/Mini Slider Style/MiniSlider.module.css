@@ -18,6 +18,14 @@
     text-decoration: none;
 }
 
+.error{
+    color: rgb(255, 27, 27);
+    font-family: "Open Sans light";
+}
+.loading{
+    color: green;
+    font-family: "Open Sans light";
 
+}
 
 
