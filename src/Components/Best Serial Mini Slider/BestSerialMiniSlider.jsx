@@ -11,10 +11,12 @@ import "swiper/css";
 import "swiper/css/free-mode"
 
 import SwiperCore, {
-  FreeMode,Navigation
+    FreeMode,Navigation
 } from 'swiper';
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getAsyncPopularSeries } from "../../Redux/Popular Series Tvs/PopularSeriesTvsReducer";
 
 // <==  Slider 
 
@@ -23,40 +25,14 @@ SwiperCore.use([FreeMode , Navigation]);
 
 
 const BestSerialMiniSlider = () => {
-
+    
+    const dispatch = useDispatch()
     
         const [dataMovie , setDataMovie] = useState({data : []})
-
+        const {data , loading , error} = useSelector(state => state.popularSeriesTvs)
 
         useEffect(()=>{
-            const getAllImdbCode = async() => {
-                const endPoint = "https://data-imdb1.p.rapidapi.com/series/order/byPopularity/"
-                await axios.get(endPoint ,{
-                    params : {
-                        page_size: '19'
-                    }, 
-                    headers: {
-                        'x-rapidapi-host': 'data-imdb1.p.rapidapi.com',
-                        'x-rapidapi-key': '61398a6ee8msh0033ca9207b7556p1fdb09jsn1ea8d45f729a'
-                    },
-                })
-                .then(response => {
-                    const  responseData =  response.data.results;
-                    responseData.map(movieId => {
-                        const id = movieId.imdb_id
-    
-                        axios.get(`https://data-imdb1.p.rapidapi.com/series/id/${id}/`,{headers : { 'x-rapidapi-host': 'data-imdb1.p.rapidapi.com','x-rapidapi-key': '61398a6ee8msh0033ca9207b7556p1fdb09jsn1ea8d45f729a'}})
-                        .then(function (response) {
-                            setDataMovie(prevMovie => ({
-                                data : [...prevMovie.data , response.data.results] 
-                            }))
-                        })
-                        .catch(function (error) { });
-                    })
-                })
-                .catch()     
-            }
-            getAllImdbCode()
+            dispatch(getAsyncPopularSeries(18));
         },[])
         
     return (  
@@ -67,8 +43,9 @@ const BestSerialMiniSlider = () => {
             </div>
 
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
-                {dataMovie.data.length === 0 && <p style={{color:'#ffffff'}}>Loading...</p>}
-                {dataMovie.data?.map((movie,index) => {
+                {loading &&  <p className={Styles.loading}>Loading...</p>}
+                {error &&  <p className={Styles.error}>{error}</p>}
+                {data?.map((movie,index) => {
                     if(index > 1)
                     return (
                         <SwiperSlide className={Styles.sliderSlideParent} key={index}>
