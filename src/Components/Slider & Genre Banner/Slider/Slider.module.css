@@ -2,6 +2,7 @@
     height: 100%;
     width: 100%;
     position: relative;
+
 }
 .sliderSlide img{
     width: 100%;
@@ -26,4 +27,13 @@
 .sliderFooter_detail span{
     margin-left: 20px;
     font-family: 'Open Sans light';
+}
+.error{
+    color: rgb(255, 27, 27);
+    font-family: "Open Sans light";
+}
+.loading{
+    color: green;
+    font-family: "Open Sans light";
+
 }
