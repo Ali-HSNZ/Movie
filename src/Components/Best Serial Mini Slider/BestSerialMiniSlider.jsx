@@ -5,40 +5,36 @@ import Styles from '../Mini Slider Style/MiniSlider.module.css'
 
 import { AiFillCaretRight } from "react-icons/ai";
 
-// Slider ==>
-
-import "swiper/css";
-import "swiper/css/free-mode"
-
-import SwiperCore, {
-    FreeMode,Navigation
-} from 'swiper';
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getAsyncPopularSeries } from "../../Redux/Popular Series Tvs/PopularSeriesTvsReducer";
 
+
+// Slider ==>
+import "swiper/css";
+import "swiper/css/free-mode"
+import SwiperCore, {
+    FreeMode,Navigation
+} from 'swiper';
 // <==  Slider 
 
 SwiperCore.use([FreeMode , Navigation]);
 
-
-
 const BestSerialMiniSlider = () => {
-    
+
     const dispatch = useDispatch()
     
-        const [dataMovie , setDataMovie] = useState({data : []})
-        const {data , loading , error} = useSelector(state => state.popularSeriesTvs)
+    const [dataMovie , setDataMovie] = useState({data : []})
+    const {data , loading , error} = useSelector(state => state.popularSeriesTvs)
 
-        useEffect(()=>{
-            dispatch(getAsyncPopularSeries(18));
-        },[])
+    useEffect(()=>{
+        dispatch(getAsyncPopularSeries(18));
+    },[])
         
     return (  
         <div className="slider_miniSlider">
             <div className={Styles.silderTitle}>
-                <a href="/">Polular Series TVs</a>
+                <a href="/">Popular Series TVs</a>
                 <AiFillCaretRight/>
             </div>
 
