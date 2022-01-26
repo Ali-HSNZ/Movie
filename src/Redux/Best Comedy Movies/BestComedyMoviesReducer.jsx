@@ -44,7 +44,6 @@ const BestMoviesByComedy = createSlice({
             return {data : [] , error : null , loading : true}
         },
         [getAsyncBestMoviesByComedy.fulfilled] : ( state , action ) => {
-            console.log("action.payload.payload ---- ",action.payload.payload)
             return {data : action.payload.payload , error : null , loading : false}
         },
         [getAsyncBestMoviesByComedy.rejected] : ( state , action ) => {
