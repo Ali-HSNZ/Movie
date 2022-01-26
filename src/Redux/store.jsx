@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { BestMoviesByAnimationReducer } from "./Best Animation Movies/BestAnimationMoviesReducer";
 import { BestMoviesByComedyReducer } from "./Best Comedy Movies/BestComedyMoviesReducer";
 import {headSliderReducer} from "./Movies Order By Rating/MoviesOrderByRating";
 import { PopularMoviesReducer } from "./Popular Movies/PopularMoviesReducer";
@@ -11,6 +12,7 @@ const store = configureStore({
         popularSeriesTvs : PopularSeriesTvsReducer,
         PopularMovies : PopularMoviesReducer,
         BestMoviesByComedy : BestMoviesByComedyReducer,
+        BestMoviesByAnimation : BestMoviesByAnimationReducer,
     }
 })
 export default store
