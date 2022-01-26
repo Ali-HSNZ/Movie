@@ -20,7 +20,7 @@ export const getAsyncBestMoviesByComedy = createAsyncThunk("Movies/BestComedyMov
     }
 })
 
-const getAsyncMoviesByImdbId = createAsyncThunk("Movies/PopularMoviesAsync" , async(imdbId_list ,{rejectWithValue}) => {
+const getAsyncMoviesByImdbId = createAsyncThunk("Movies/BestComedyMoviesAsync" , async(imdbId_list ,{rejectWithValue}) => {
     try {
         const AsyncPopularMovies_MovieData = await axios.all(imdbId_list.map(movieId => {
             return  axios.get(`https://data-imdb1.p.rapidapi.com/movie/id/${movieId.imdb_id}/`,{
@@ -36,8 +36,8 @@ const getAsyncMoviesByImdbId = createAsyncThunk("Movies/PopularMoviesAsync" , as
     }
 })
 
-const BestMoviesByComedy = createSlice({
-    name : "BestMoviesByGennre",
+const BestComedyMovies = createSlice({
+    name : "BestComedyMovies",
     initialState : {data : [] , loading : false , error : null},
     extraReducers : {
         [getAsyncBestMoviesByComedy.pending] : ( state , action ) => {
@@ -51,4 +51,4 @@ const BestMoviesByComedy = createSlice({
         },
     },
 })
-export const BestMoviesByComedyReducer = BestMoviesByComedy.reducer;
+export const BestMoviesByComedyReducer = BestComedyMovies.reducer;
