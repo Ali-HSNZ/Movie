@@ -16,8 +16,8 @@ const Home = () => {
             <SliderGenreBanner/>
             <BestSerialMiniSlider/>
             <BestMovieMiniSlider/>
-            <BestComedyMiniSlider/>
             <TopMoviesRating/>
+            <BestComedyMiniSlider/>
             <BestAnimationMiniSlider/>
             <TopRatedTvShow/>
             <AllMoviesByGenre/>
