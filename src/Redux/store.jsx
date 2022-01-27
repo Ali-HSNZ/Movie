@@ -4,6 +4,7 @@ import { BestMoviesByComedyReducer } from "./Best Comedy Movies/BestComedyMovies
 import {headSliderReducer} from "./Movies Order By Rating/MoviesOrderByRating";
 import { PopularMoviesReducer } from "./Popular Movies/PopularMoviesReducer";
 import { PopularSeriesTvsReducer } from "./Popular Series Tvs/PopularSeriesTvsReducer";
+import { TopRatingMoviesReducer } from "./Top Rating Movies/TopRatingMoviesReducer";
 
 
 const store = configureStore({
@@ -13,6 +14,7 @@ const store = configureStore({
         PopularMovies : PopularMoviesReducer,
         BestMoviesByComedy : BestMoviesByComedyReducer,
         BestMoviesByAnimation : BestMoviesByAnimationReducer,
+        TopRatingMovies : TopRatingMoviesReducer,
     }
 })
 export default store
