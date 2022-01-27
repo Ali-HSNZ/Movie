@@ -3,6 +3,7 @@ import { AllGenresReducer } from "./All Movies by Genres/AllMoviesByGenres";
 import { AllSeriesByGenresReducer } from "./All Series By Genre/AllSeriesByGenre";
 import { BestMoviesByAnimationReducer } from "./Best Animation Movies/BestAnimationMoviesReducer";
 import { BestMoviesByComedyReducer } from "./Best Comedy Movies/BestComedyMoviesReducer";
+import { BestMoviesByWarReducer } from "./Best War Movies/BestWarMoviesReducer";
 import {headSliderReducer} from "./Movies Order By Rating/MoviesOrderByRating";
 import { PopularMoviesReducer } from "./Popular Movies/PopularMoviesReducer";
 import { PopularSeriesTvsReducer } from "./Popular Series Tvs/PopularSeriesTvsReducer";
@@ -21,6 +22,7 @@ const store = configureStore({
         TopRatingTvShow : TopRatingTvShowReducer,
         AllGenres : AllGenresReducer,
         AllSeriesByGenres : AllSeriesByGenresReducer,
+        BestMoviesByWar : BestMoviesByWarReducer
     }
 })
 export default store
