@@ -1,12 +1,12 @@
-import Styles from "./AllGenre.module.css"
+import Styles from "./AllMoviesByGenre.module.css"
 import { AiFillCaretRight } from "react-icons/ai";
 
-const AllGenre = () => {
+const AllMoviesByGenre = () => {
     return (  
         <div className={Styles.parent}>
             <div className={Styles.header}>
                 <p className={Styles.headerTitle}>
-                    All genres
+                    All Movies By  Genres
                     <AiFillCaretRight/>
                 </p>
             </div>
@@ -159,4 +159,4 @@ const AllGenre = () => {
     );
 }
  
-export default AllGenre;
+export default AllMoviesByGenre;
