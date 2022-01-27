@@ -1,4 +1,5 @@
 import AllMoviesByGenre from "../../Components/All Movies By Genre/AllMoviesByGenre";
+import AllSeriesByGenre from "../../Components/All Series By Genre/AllSeriesByGenre";
 import BestAnimationMiniSlider from "../../Components/Best Animation Mini Slider/BestAnimationMiniSlider";
 import BestComedyMiniSlider from "../../Components/Best Comedy Mini Slider/BestComedyMovieMiniSlider";
 import BestFamilyMovieMiniSlider from "../../Components/Best Family Movie Mini Slider/BestFamilyMovieMiniSlider";
@@ -23,6 +24,7 @@ const Home = () => {
             <AllMoviesByGenre/>
             <BestWarMovieMiniSlider/>
             <BestFamilyMovieMiniSlider/>
+            <AllSeriesByGenre/>
             <BestHistorySeriesMiniSlider/>
         </>
     ); 
