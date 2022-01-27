@@ -1,18 +1,15 @@
 import Styles from "./TopMoviesRating.module.css"
 import { AiFillCaretRight } from "react-icons/ai";
 import { BsFillCaretRightFill } from "react-icons/bs";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAsyncRatingMovies } from "../../Redux/Top Rating Movies/TopRatingMoviesReducer";
 
 const TopMoviesRating = () => {
 
-    const [dataMovie , setDataMovie] = useState({data : []})
 
     const {data , loading , error} = useSelector(state => state.TopRatingMovies)
     const dispatch = useDispatch()
-
 
     useEffect(()=>{
         dispatch(getAsyncRatingMovies(9))
@@ -30,8 +27,7 @@ const TopMoviesRating = () => {
 
                 {error && <p className={Styles.error}>{error}</p>}
                 {loading && <p className={Styles.loading}>Loading...</p>}
-
-                 {data ?.map((movie,index) => {
+                {data ?.map((movie,index) => {
                     return (
                         <div className={Styles.item} key={index}>
                             <div className={Styles.item_numberLine}>
@@ -52,5 +48,4 @@ const TopMoviesRating = () => {
         </div>
     );
 }
- 
 export default TopMoviesRating;
