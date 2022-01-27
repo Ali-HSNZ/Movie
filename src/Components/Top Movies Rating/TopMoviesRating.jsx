@@ -3,47 +3,20 @@ import { AiFillCaretRight } from "react-icons/ai";
 import { BsFillCaretRightFill } from "react-icons/bs";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAsyncRatingMovies } from "../../Redux/Top Rating Movies/TopRatingMoviesReducer";
 
 const TopMoviesRating = () => {
 
     const [dataMovie , setDataMovie] = useState({data : []})
 
+    const {data , loading , error} = useSelector(state => state.TopRatingMovies)
+    const dispatch = useDispatch()
+
+
     useEffect(()=>{
-
-        const getAllImdbCode = async() => {
-            const endPoint = "https://data-imdb1.p.rapidapi.com/movie/order/byRating/"
-            await axios.get(endPoint ,{
-                params : {
-                    page_size: '6'
-                }, 
-                headers: {
-                    'x-rapidapi-host': 'data-imdb1.p.rapidapi.com',
-                    'x-rapidapi-key': '61398a6ee8msh0033ca9207b7556p1fdb09jsn1ea8d45f729a'
-                },
-            })
-            .then(response => {
-                const  responseData =  response.data.results;
-                responseData.map(movie => {
-                    const id = movie.imdb_id
-
-                    axios.get(`https://data-imdb1.p.rapidapi.com/movie/id/${id}/`,{headers : { 'x-rapidapi-host': 'data-imdb1.p.rapidapi.com','x-rapidapi-key': '61398a6ee8msh0033ca9207b7556p1fdb09jsn1ea8d45f729a'}})
-                    .then(function (response) {
-                        setDataMovie(prevMovie => ({
-                            data : [...prevMovie.data , response.data.results]
-                        }))
-                    })
-                    .catch(function (error) { });
-                })
-            })
-            .catch()     
-        }
-        getAllImdbCode()
-
+        dispatch(getAsyncRatingMovies(9))
     },[])
-
-    function sortData(){
-        return dataMovie.data.sort((a, b) =>  b.rating - a.rating)
-    }
 
     return (  
         <div className={Styles.parent}>
@@ -55,7 +28,10 @@ const TopMoviesRating = () => {
 
             <div className={Styles.footer}>
 
-                 {dataMovie && sortData() ?.map((movie,index) => {
+                {error && <p className={Styles.error}>{error}</p>}
+                {loading && <p className={Styles.loading}>Loading...</p>}
+
+                 {data ?.map((movie,index) => {
                     return (
                         <div className={Styles.item} key={index}>
                             <div className={Styles.item_numberLine}>
@@ -67,7 +43,7 @@ const TopMoviesRating = () => {
                                 <p className={Styles.item_movieRating}>{movie.rating}</p>
                             </div>
                             <div className={Styles.item_play}>
-                                <BsFillCaretRightFill size='24px'/>
+                                <BsFillCaretRightFill size='21px'/>
                             </div>
                         </div>
                     )
