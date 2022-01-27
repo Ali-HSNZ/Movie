@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { AllGenresReducer } from "./All Movies by Genres/AllMoviesByGenres";
 import { BestMoviesByAnimationReducer } from "./Best Animation Movies/BestAnimationMoviesReducer";
 import { BestMoviesByComedyReducer } from "./Best Comedy Movies/BestComedyMoviesReducer";
 import {headSliderReducer} from "./Movies Order By Rating/MoviesOrderByRating";
@@ -16,7 +17,8 @@ const store = configureStore({
         BestMoviesByComedy : BestMoviesByComedyReducer,
         BestMoviesByAnimation : BestMoviesByAnimationReducer,
         TopRatingMovies : TopRatingMoviesReducer,
-        TopRatingTvShow : TopRatingTvShowReducer
+        TopRatingTvShow : TopRatingTvShowReducer,
+        AllGenres : AllGenresReducer,
     }
 })
 export default store
