@@ -37,9 +37,9 @@ const TopRatedTvShow = () => {
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
                 {loading && <p className={Styles.loading}>Loading...</p>}
                 {error && <p className={Styles.error}>{error}</p>}
-                {data ?.map(movie => {
+                {data ?.map((movie,index) => {
                     return (
-                        <SwiperSlide  className={Styles.sliderSlideParent}>
+                        <SwiperSlide  className={Styles.sliderSlideParent} key={index}>
                             <img className={Styles.sliderSlide} src={`https://img.gs/knzwmsmxwd/268x215,quality=low/${movie.banner}`}/>
                         </SwiperSlide>
                     )
