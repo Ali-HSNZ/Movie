@@ -16,6 +16,7 @@ import SwiperCore, {
   FreeMode,Navigation
 } from 'swiper';
 import MiniSliderSlideCommon from "../../Common/Mini Slider Slide/MiniSliderSlide";
+import { Skeleton } from "@mui/material";
 
 SwiperCore.use([FreeMode , Navigation]);
 
@@ -24,10 +25,24 @@ const BestAnimationMiniSlider = () => {
     const {data , loading , error} = useSelector(state =>state.BestMoviesByAnimation)
     const dispatch = useDispatch()
 
+    const NumOfvideos = 18;
     useEffect(()=>{
-        dispatch(getAsyncBestMoviesByAnimation({byGenre : "Animation" , count : 16}))
+        dispatch(getAsyncBestMoviesByAnimation({byGenre : "Animation" , count : NumOfvideos}))
     },[])
 
+    const renderSkeleton = ()=>{
+        let content = [];
+        for (let index = 0; index < NumOfvideos; index++) {
+            content.push(
+                <SwiperSlide>
+                    <Skeleton  variant="rectangular" width={215} height={268} sx={{ bgcolor: "#1d1d2e" }}/>
+                    <Skeleton  variant="rectangular" width={100} height={15} sx={{ bgcolor: "#181824" }}/>
+                    <Skeleton  variant="rectangular" width={215} height={18} sx={{ bgcolor: "#1d1d2e" }}/>
+                </SwiperSlide>   
+            );
+        }
+        return content
+    }
 
     return (  
         <div className="slider_miniSlider">
@@ -36,7 +51,7 @@ const BestAnimationMiniSlider = () => {
                 <AiFillCaretRight/>
             </div>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
-               {loading && <p className={Styles.loading}>Loading...</p>}
+               {loading && renderSkeleton()}
                {error && <p className={Styles.error}>{error}</p>}
                 {data ? data.map((movie,index) => {
                     return (
@@ -44,7 +59,7 @@ const BestAnimationMiniSlider = () => {
                             <MiniSliderSlideCommon movie={movie}/>
                         </SwiperSlide>
                     )
-                }) : <p className={Styles.loading}>Loading...</p>}
+                }) : renderSkeleton()}
             </Swiper>
         </div>
     );
