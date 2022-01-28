@@ -11,7 +11,7 @@ export const getAsyncTopRatingTvShow = createAsyncThunk("TvShow/TopRatingTvShow"
                 'x-rapidapi-key': '61398a6ee8msh0033ca9207b7556p1fdb09jsn1ea8d45f729a'
             },
         })
-        return dispatch(getAsyncMovieDataByImdbId(AsyncTopRatingTvShow_list.data.results))
+        dispatch(getAsyncMovieDataByImdbId(AsyncTopRatingTvShow_list.data.results))
     } catch (error) {
         return rejectWithValue(error.message)
     }
@@ -26,7 +26,6 @@ const getAsyncMovieDataByImdbId = createAsyncThunk("TvShow/TopRatingTvShow" , as
                     'x-rapidapi-key': '61398a6ee8msh0033ca9207b7556p1fdb09jsn1ea8d45f729a'
                 }
             })
-            
         }))
        return Async_MovieData.map(e => e.data.results)
     } catch (error) {
@@ -42,7 +41,7 @@ const TopRatingTvShow = createSlice({
             return {data : [] , error : null , loading : true}
         },
         [getAsyncTopRatingTvShow.fulfilled] : ( state , action ) => {
-            return {data : action.payload.payload , error : null , loading : false}
+            return {data : action.payload , error : null , loading : false}
         },
         [getAsyncTopRatingTvShow.rejected] : ( state , action ) => {
             return {data : [] , error : action.payload , loading : false}
