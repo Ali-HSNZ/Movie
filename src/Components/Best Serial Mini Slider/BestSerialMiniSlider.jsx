@@ -16,6 +16,7 @@ import "swiper/css/free-mode"
 import SwiperCore, {
     FreeMode,Navigation
 } from 'swiper';
+import MiniSliderSlideCommon from "../../Common/Mini Slider Slide/MiniSliderSlide";
 // <==  Slider 
 
 SwiperCore.use([FreeMode , Navigation]);
@@ -45,7 +46,7 @@ const BestSerialMiniSlider = () => {
                     if(index > 1)
                     return (
                         <SwiperSlide className={Styles.sliderSlideParent} key={index}>
-                            <img alt={movie.title} className={Styles.sliderSlide} src={`https://img.gs/knzwmsmxwd/268x215,quality=high/${movie.banner}`} />
+                            <MiniSliderSlideCommon movie={movie}/>
                         </SwiperSlide>
                     );
                 }) : <p className={Styles.loading}>Loading...</p>}
