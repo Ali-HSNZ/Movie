@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { imdb8_apiKey } from "../../Services/API_KEY";
 
 export const getAsyncBestMoviesByAnimation = createAsyncThunk("Movies/BestAnimationMoviesAsync" , async(action ,{rejectWithValue,dispatch}) => {
     try {
@@ -13,13 +14,13 @@ export const getAsyncBestMoviesByAnimation = createAsyncThunk("Movies/BestAnimat
                 'x-rapidapi-key': '0760fbecffmsh1446d59419ae965p1f92e0jsn73eef9fcda88'
             },
         })
-        return dispatch(getAsyncMoviesByImdbId(AsyncBestAnimationMovies_list.data.results))
+        dispatch(getAsyncMoviesByImdbId(AsyncBestAnimationMovies_list.data.results))
     } catch (error) {
         return rejectWithValue(error.message)
     }
 })
 
-const getAsyncMoviesByImdbId = createAsyncThunk("Movies/GetAnimationMovieData" , async(imdbId_list ,{rejectWithValue}) => {
+const getAsyncMoviesByImdbId = createAsyncThunk("Movies/BestAnimationMoviesAsync" , async(imdbId_list ,{rejectWithValue}) => {
     try {
         const AsyncPopularMovies_MovieData = await axios.all(imdbId_list.map(movieId => {
             return  axios.get(`https://data-imdb1.p.rapidapi.com/movie/id/${movieId.imdb_id}/`,{
@@ -29,26 +30,25 @@ const getAsyncMoviesByImdbId = createAsyncThunk("Movies/GetAnimationMovieData" ,
                 }
             })
         }))
-        console.log()
        return AsyncPopularMovies_MovieData.map(e => e.data.results)
     } catch (error) {
         return rejectWithValue(error.message)
     }
 })
 
-const BestMoviesByAnimation = createSlice({
-    name : "BestMoviesAnimation",
+const BestAnimationMovies = createSlice({
+    name : "BestAnimationMovies",
     initialState : {data : [] , loading : false , error : null},
     extraReducers : {
         [getAsyncBestMoviesByAnimation.pending] : ( state , action ) => {
             return {data : [] , error : null , loading : true}
         },
         [getAsyncBestMoviesByAnimation.fulfilled] : ( state , action ) => {
-            return {data : action.payload.payload , error : null , loading : false}
+            return {data : action.payload , error : null , loading : false}
         },
         [getAsyncBestMoviesByAnimation.rejected] : ( state , action ) => {
             return {data : [] , error : action.payload , loading : false}
         },
     },
 })
-export const BestMoviesByAnimationReducer = BestMoviesByAnimation.reducer;
+export const BestMoviesByAnimationReducer = BestAnimationMovies.reducer;
