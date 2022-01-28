@@ -6,21 +6,19 @@ import 'swiper/css/navigation';
 import './manageSlider.css'
 import { useEffect } from 'react';
 
-import {moviesOrderByRating_list} from '../../../Redux/Movies Order By Rating/MoviesOrderByRating'
+import {getAsyncComingSoonMovies} from '../../../Redux/Coming Soon Movies/ComingSoonMovies'
 
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 const Slider = () => {
 
-const {data , loading , error} = useSelector(state => state.headSlider)
+const {data , loading , error} = useSelector(state => state.comingSoonMovies)
 
     const dispatch = useDispatch()
     
     useEffect(()=>{
-        dispatch(moviesOrderByRating_list(1))
+        dispatch(getAsyncComingSoonMovies(2))
     },[])
-    
-    console.log("dataaa : ",data)
 
     return (  
         <div className='slider_slideGenreBanner'>
