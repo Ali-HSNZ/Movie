@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './manageSlider.css'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import {moviesOrderByRating_list} from '../../../Redux/Movies Order By Rating/MoviesOrderByRating'
 
@@ -17,8 +17,10 @@ const {data , loading , error} = useSelector(state => state.headSlider)
     const dispatch = useDispatch()
     
     useEffect(()=>{
-        dispatch(moviesOrderByRating_list(2))
+        dispatch(moviesOrderByRating_list(1))
     },[])
+    
+    console.log("dataaa : ",data)
 
     return (  
         <div className='slider_slideGenreBanner'>
@@ -28,12 +30,12 @@ const {data , loading , error} = useSelector(state => state.headSlider)
                 {data ?.map((movie,index) => {
                     return(
                         <SwiperSlide className={Styles.sliderSlide}key={index}>
-                            <img src={`https://img.gs/knzwmsmxwd/741x400/${movie.url}`}/>
+                            <img src={`https://img.gs/knzwmsmxwd/741x400/${movie.images[0].url}`}/>
                             <div className={Styles.sliderFooter}>
-                                <span>{movie.caption.length > 40 ? movie.caption.substring(0,40)+"..." : movie.caption } </span>
+                                <span>{movie && movie.images[0].caption.length > 40 ? movie.images[0].caption.substring(0,40)+"..." : movie.images[0].caption } </span>
                                 <div className={Styles.sliderFooter_detail}>
-                                    <span>Type : {movie.relatedTitles[0].titleType}</span>
-                                    <span>Year : {movie.relatedTitles[0].year}</span>
+                                    <span>Type : {movie.images[0].relatedTitles[0].titleType}</span>
+                                    <span>Release Date : {movie.images[0].relatedTitles[0].year}</span>
                                 </div>
                             </div>
                         </SwiperSlide>  
