@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 import { getAsyncTopRatingTvShow } from "../../Redux/Top Rating Tv Show/TopRatingTvShowReducer";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import MiniSliderSlideCommon from "../../Common/Mini Slider Slide/MiniSliderSlide";
 
 SwiperCore.use([FreeMode , Navigation]);
 
@@ -39,8 +40,8 @@ const TopRatedTvShow = () => {
                 {error && <p className={Styles.error}>{error}</p>}
                 {data ? data.map((movie,index) => {
                     return (
-                        <SwiperSlide  className={Styles.sliderSlideParent} key={index}>
-                            <img className={Styles.sliderSlide} src={`https://img.gs/knzwmsmxwd/268x215,quality=low/${movie.banner}`}/>
+                        <SwiperSlide  key={index}>
+                            <MiniSliderSlideCommon movie={movie}/>
                         </SwiperSlide>
                     )
                 }) : <p className={Styles.loading}>Loading...</p>}    
