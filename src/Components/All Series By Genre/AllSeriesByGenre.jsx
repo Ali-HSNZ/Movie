@@ -15,6 +15,8 @@ const AllSeriesByGenre = () => {
 
     const {data , loading , error} = useSelector(state => state.AllSeriesByGenres)
 
+    
+
     return (  
         <div className={Styles.parent}>
             <div className={Styles.header}>
@@ -26,7 +28,7 @@ const AllSeriesByGenre = () => {
             <div className={Styles.footer}>
                 {loading && <p className={Styles.loading}>Loading...</p>}
                 {error && <p className={Styles.error}>{error}</p>}
-                {data ?.map((genre,index) => {
+                {data ? data.map((genre,index) => {
 
                     // slashOne ==>  http://47.254.174.28/movie/byGen/
                     // slashTwo ==>  /?
@@ -49,9 +51,9 @@ const AllSeriesByGenre = () => {
                             <span className={Styles.genreVidoeCount}>Movie : {genre.count}</span>
                         </div>
                     )
-                })}
+                }) : <p className={Styles.loading}>Loading...</p>}
             </div>
-            {data.length > 0 ? <div className={Styles.cover}><a href="/">Load More</a></div> : null}
+            {data && data.length !== 0 ? <div className={Styles.cover}><a href="/">Load More</a></div> : null}
         </div>
     );
 }
