@@ -14,7 +14,7 @@ export const getAsyncBestMoviesByComedy = createAsyncThunk("Movies/BestComedyMov
                 'x-rapidapi-key': '0760fbecffmsh1446d59419ae965p1f92e0jsn73eef9fcda88'
             },
         })
-        return dispatch(getAsyncMoviesByImdbId(AsyncBestComedyMovies_list.data.results))
+        dispatch(getAsyncMoviesByImdbId(AsyncBestComedyMovies_list.data.results))
     } catch (error) {
         return rejectWithValue(error.message)
     }
@@ -44,7 +44,7 @@ const BestComedyMovies = createSlice({
             return {data : [] , error : null , loading : true}
         },
         [getAsyncBestMoviesByComedy.fulfilled] : ( state , action ) => {
-            return {data : action.payload.payload , error : null , loading : false}
+            return {data : action.payload , error : null , loading : false}
         },
         [getAsyncBestMoviesByComedy.rejected] : ( state , action ) => {
             return {data : [] , error : action.payload , loading : false}
