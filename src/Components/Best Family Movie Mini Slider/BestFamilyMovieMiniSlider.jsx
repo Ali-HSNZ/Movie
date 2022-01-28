@@ -17,6 +17,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAsyncBestMoviesByFamily } from "../../Redux/Best Family Movies/BestFamilyMovies";
+import MiniSliderSlideCommon from "../../Common/Mini Slider Slide/MiniSliderSlide";
 
 SwiperCore.use([FreeMode , Navigation]);
 
@@ -33,7 +34,7 @@ const BestFamilyMovieMiniSlider = () => {
     return (  
         <div className="slider_miniSlider">
             <div className={Styles.silderTitle}>
-                <a  href="#">Best Family Movie in 2021</a>
+                <a  href="#">Best Family Movies</a>
                 <AiFillCaretRight/>
             </div>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
@@ -41,12 +42,11 @@ const BestFamilyMovieMiniSlider = () => {
                 {error && <p className={Styles.error}>{error}</p>}
                 {data ? data.map((movie,index) => {
                     return (
-                        <SwiperSlide  className={Styles.sliderSlideParent} key={index}>
-                            <img className={Styles.sliderSlide} src={`https://img.gs/knzwmsmxwd/268x215,quality=low/${movie.banner}`} />
+                        <SwiperSlide key={index}>
+                            <MiniSliderSlideCommon movie={movie}/>
                         </SwiperSlide>
                     )
                  }) : <p className={Styles.loading}>Loading...</p>}
-
             </Swiper>
         </div>
     );
