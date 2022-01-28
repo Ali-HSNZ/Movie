@@ -4,18 +4,28 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { getAsyncAllMoviesByGenres } from "../../Redux/All Series By Genre/AllSeriesByGenre";
+import { Skeleton } from "@mui/material";
 
 const AllSeriesByGenre = () => {
     
     const dispatch = useDispatch()
 
+    const NumOfvideos = 9;
     useEffect(()=>{
-        dispatch(getAsyncAllMoviesByGenres(9))
+        dispatch(getAsyncAllMoviesByGenres(NumOfvideos))
     },[])
 
     const {data , loading , error} = useSelector(state => state.AllSeriesByGenres)
 
-    
+    const renderSkeleton = ()=>{
+        let content = [];
+        for (let index = 0; index < NumOfvideos; index++) {
+            content.push(
+                <Skeleton  variant="rectangular" height={108} sx={{ bgcolor: "#1d1d2e" }} className={Styles.rowItem}/>
+            );
+        }
+        return content
+    }
 
     return (  
         <div className={Styles.parent}>
@@ -26,7 +36,7 @@ const AllSeriesByGenre = () => {
                 </p>
             </div>
             <div className={Styles.footer}>
-                {loading && <p className={Styles.loading}>Loading...</p>}
+                {loading && renderSkeleton()}
                 {error && <p className={Styles.error}>{error}</p>}
                 {data ? data.map((genre,index) => {
 
@@ -51,7 +61,7 @@ const AllSeriesByGenre = () => {
                             <span className={Styles.genreVidoeCount}>Movie : {genre.count}</span>
                         </div>
                     )
-                }) : <p className={Styles.loading}>Loading...</p>}
+                }) : renderSkeleton()}
             </div>
             {data && data.length !== 0 ? <div className={Styles.cover}><a href="/">Load More</a></div> : null}
         </div>
