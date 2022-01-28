@@ -2,7 +2,7 @@ import Styles from "./AllMoviesByGenre.module.css"
 import { AiFillCaretRight } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { getAsyncAllGenres } from "../../Redux/All Movies by Genres/AllMoviesByGenres";
+import { getAsyncAllMoviesByGenre } from "../../Redux/All Movies by Genres/AllMoviesByGenres";
 import { useSelector } from "react-redux";
 
 const AllMoviesByGenre = () => {
@@ -10,10 +10,10 @@ const AllMoviesByGenre = () => {
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        dispatch(getAsyncAllGenres(9))
+        dispatch(getAsyncAllMoviesByGenre(9))
     },[])
 
-    const {data , loading , error} = useSelector(state => state.AllGenres)
+    const {data , loading , error} = useSelector(state => state.AllMoviesByGenre)
 
     return (  
         <div className={Styles.parent}>
@@ -26,7 +26,7 @@ const AllMoviesByGenre = () => {
             <div className={Styles.footer}>
                 {loading && <p className={Styles.loading}>Loading...</p>}
                 {error && <p className={Styles.error}>{error}</p>}
-                {data ?.map((genre,index) => {
+                {data ? data.map((genre,index) => {
 
                     // slashOne ==>  http://47.254.174.28/movie/byGen/
                     // slashTwo ==>  /?
@@ -49,10 +49,10 @@ const AllMoviesByGenre = () => {
                             <span className={Styles.genreVidoeCount}>Movie : {genre.count}</span>
                         </div>
                     )
-                })}
+                }) : <p className={Styles.loading}>Loading...</p>}
             </div>
 
-            {data.length > 0 ? <div className={Styles.cover}><a href="/">Load More</a></div> : null}
+            {data && data.length !== 0 ? <div className={Styles.cover}><a href="/">Load More</a></div> : null}
         </div>
     );
 }
