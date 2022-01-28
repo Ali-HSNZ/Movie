@@ -11,7 +11,7 @@ export const getAsyncPopularMovies = createAsyncThunk("Movies/PopularMoviesAsync
                 'x-rapidapi-key': '61398a6ee8msh0033ca9207b7556p1fdb09jsn1ea8d45f729a'
             },
         })
-        return dispatch(getAsyncPopularMoviesByImdbId(AsyncPopularMovies_list.data.results))
+        dispatch(getAsyncPopularMoviesByImdbId(AsyncPopularMovies_list.data.results))
     } catch (error) {
         return rejectWithValue(error.message)
     }
@@ -42,7 +42,7 @@ const PopularMovies = createSlice({
             return {data : [] , error : null , loading : true}
         },
         [getAsyncPopularMovies.fulfilled] : ( state , action ) => {
-            return {data : action.payload.payload , error : null , loading : false}
+            return {data : action.payload , error : null , loading : false}
         },
         [getAsyncPopularMovies.rejected] : ( state , action ) => {
             return {data : [] , error : action.payload , loading : false}
