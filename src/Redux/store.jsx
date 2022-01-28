@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { AllGenresReducer } from "./All Movies by Genres/AllMoviesByGenres";
+import { AllMoviesByGenreReducer } from "./All Movies by Genres/AllMoviesByGenres";
 import { AllSeriesByGenresReducer } from "./All Series By Genre/AllSeriesByGenre";
 import { BestMoviesByAnimationReducer } from "./Best Animation Movies/BestAnimationMoviesReducer";
 import { BestMoviesByComedyReducer } from "./Best Comedy Movies/BestComedyMoviesReducer";
+import { BestMoviesByFamilyReducer } from "./Best Family Movies/BestFamilyMovies";
+import { BestMoviesByHistoryReducer } from "./Best History Movies/BestHistoryMovies";
 import { BestMoviesByWarReducer } from "./Best War Movies/BestWarMoviesReducer";
-import {headSliderReducer} from "./Movies Order By Rating/MoviesOrderByRating";
+import { comingSoonMoviesReducer } from "./Coming Soon Movies/ComingSoonMovies";
 import { PopularMoviesReducer } from "./Popular Movies/PopularMoviesReducer";
 import { PopularSeriesTvsReducer } from "./Popular Series Tvs/PopularSeriesTvsReducer";
 import { TopRatingMoviesReducer } from "./Top Rating Movies/TopRatingMoviesReducer";
@@ -13,16 +15,18 @@ import { TopRatingTvShowReducer } from "./Top Rating Tv Show/TopRatingTvShowRedu
 
 const store = configureStore({
     reducer : {
-        headSlider : headSliderReducer,
+        comingSoonMovies : comingSoonMoviesReducer,
         popularSeriesTvs : PopularSeriesTvsReducer,
         PopularMovies : PopularMoviesReducer,
         BestMoviesByComedy : BestMoviesByComedyReducer,
         BestMoviesByAnimation : BestMoviesByAnimationReducer,
         TopRatingMovies : TopRatingMoviesReducer,
         TopRatingTvShow : TopRatingTvShowReducer,
-        AllGenres : AllGenresReducer,
+        AllMoviesByGenre : AllMoviesByGenreReducer,
         AllSeriesByGenres : AllSeriesByGenresReducer,
-        BestMoviesByWar : BestMoviesByWarReducer
+        BestMoviesByWar : BestMoviesByWarReducer,
+        BestMoviesByFamily : BestMoviesByFamilyReducer,
+        BestMoviesByHistory : BestMoviesByHistoryReducer,
     }
 })
 export default store
