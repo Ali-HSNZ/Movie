@@ -36,6 +36,8 @@ const BestMovieMiniSlider = () => {
             content.push(
                 <SwiperSlide>
                     <Skeleton  variant="rectangular" width={215} height={268} sx={{ bgcolor: "#1d1d2e" }}/>
+                    <Skeleton  variant="rectangular" width={100} height={15} sx={{ bgcolor: "#181824" }}/>
+                    <Skeleton  variant="rectangular" width={215} height={18} sx={{ bgcolor: "#1d1d2e" }}/>
                 </SwiperSlide>   
             );
         }
