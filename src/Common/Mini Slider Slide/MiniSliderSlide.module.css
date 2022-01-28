@@ -18,7 +18,8 @@
     color: rgb(212, 212, 212);
     font-size: 13.5px;
     position: relative;
-    top: 5px;
+    margin-top: 5px;
+    display: block;
 }
 .movieDetail{
     width: 205px;
