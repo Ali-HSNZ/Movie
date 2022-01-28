@@ -4,16 +4,26 @@ import { BsFillCaretRightFill } from "react-icons/bs";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAsyncRatingMovies } from "../../Redux/Top Rating Movies/TopRatingMoviesReducer";
+import { Skeleton } from "@mui/material";
 
 const TopMoviesRating = () => {
-
-
     const {data , loading , error} = useSelector(state => state.TopRatingMovies)
     const dispatch = useDispatch()
 
+    const NumOfvideos = 9
     useEffect(()=>{
-        dispatch(getAsyncRatingMovies(9))
+        dispatch(getAsyncRatingMovies(NumOfvideos))
     },[])
+
+    const renderSkeleton = ()=>{
+        let content = [];
+        for (let index = 0; index < NumOfvideos; index++) {
+            content.push(
+                <Skeleton  variant="rectangular" height={79} sx={{ bgcolor: "#1d1d2e" }} className={Styles.itemSkeleton}/>
+            );
+        }
+        return content
+    }
 
     return (  
         <div className={Styles.parent}>
@@ -26,7 +36,7 @@ const TopMoviesRating = () => {
             <div className={Styles.footer}>
 
                 {error && <p className={Styles.error}>{error}</p>}
-                {loading && <p className={Styles.loading}>Loading...</p>}
+                {loading && renderSkeleton()}
                 {data ? data.map((movie,index) => {
                     return (
                         <div className={Styles.item} key={index}>
@@ -43,7 +53,7 @@ const TopMoviesRating = () => {
                             </div>
                         </div>
                     )
-                }) : <p className={Styles.loading}>Loading...</p>}   
+                }) : renderSkeleton()}   
             </div>
         </div>
     );
