@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getAsyncAllMoviesByGenres = createAsyncThunk("Series/AllGenresAsync" , async(count ,{rejectWithValue,dispatch}) => {
+export const getAsyncAllMoviesByGenres = createAsyncThunk("Series/AllSeriesByGenre" , async(count ,{rejectWithValue,dispatch}) => {
     try {
         const endPoint = "https://data-imdb1.p.rapidapi.com/genres/"
         const AsyncAllGenres_list = await axios.get(endPoint ,{
@@ -10,7 +10,7 @@ export const getAsyncAllMoviesByGenres = createAsyncThunk("Series/AllGenresAsync
                 'x-rapidapi-key': 'ef9d3c3f13msh2474c99e5fa56d7p1fa5c1jsn3babf0ae016f'
             },
         })
-        return dispatch(getAsyncAllSeriesByGenres(AsyncAllGenres_list.data.results.slice(0,count)))
+        dispatch(getAsyncAllSeriesByGenres(AsyncAllGenres_list.data.results.slice(0,count)))
     } catch (error) {
         return rejectWithValue(error.message)
     }
@@ -30,7 +30,7 @@ const getAsyncAllSeriesByGenres = createAsyncThunk("Series/AllSeriesByGenre" , a
             })
         }))
 
-       return AsyncGetSeriesByGenres.map(e => e.data)
+        return AsyncGetSeriesByGenres.map(e => e.data)
     } catch (error) {
         return rejectWithValue(error.message)
     }
@@ -40,11 +40,11 @@ const AllSeriesByGenres = createSlice({
     name : "AllGenres",
     initialState : {data : [] , loading : false , error : null},
     extraReducers : {
-        [getAsyncAllMoviesByGenres.pending] : ( state , action ) => {
+        [getAsyncAllMoviesByGenres.pending] : () => {
             return {data : [] , error : null , loading : true}
         },
         [getAsyncAllMoviesByGenres.fulfilled] : ( state , action ) => {
-            return {data : action.payload.payload , error : null , loading : false}
+            return {data : action.payload , error : null , loading : false}
         },
         [getAsyncAllMoviesByGenres.rejected] : ( state , action ) => {
             return {data : [] , error : action.payload , loading : false}
