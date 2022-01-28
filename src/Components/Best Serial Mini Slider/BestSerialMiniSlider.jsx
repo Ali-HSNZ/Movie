@@ -45,7 +45,7 @@ const BestSerialMiniSlider = () => {
                 {data ? data.map((movie,index) => {
                     if(index > 1)
                     return (
-                        <SwiperSlide className={Styles.sliderSlideParent} key={index}>
+                        <SwiperSlide key={index}>
                             <MiniSliderSlideCommon movie={movie}/>
                         </SwiperSlide>
                     );
