@@ -1,0 +1,52 @@
+.sliderSlideImg{
+    width: 215px;
+    height: 268px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 5px;
+    position: relative;
+}
+.sliderSlideParent:hover  .movieDetail{
+    transition-delay:  0.3s;
+    opacity: 1;
+    transition-duration: 0.3s;
+}
+.sliderSlideParent:hover .sliderSlideImg{
+    transform: scale(1.020);
+}
+.movieTitle{
+    color: rgb(212, 212, 212);
+    font-size: 13.5px;
+    position: relative;
+    top: 5px;
+}
+.movieDetail{
+    width: 205px;
+    height: 258px;
+    background-color: rgba(0, 0, 0, 0.89);
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    right: 0;
+    bottom: 0;
+    color: rgb(180, 180, 180);
+    padding: 0px 13px;
+    opacity: 0;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.movieInfo{
+    width: 100%;
+    height: auto;
+    margin: 8px 0 0 0px;
+}
+.movieInfo_title{
+    color: rgb(233, 233, 106);
+    font-size: 14px;
+    font-family: 'Open Sans';
+}
+.movieInfo_detaill{
+    font-size: 14px;
+    font-family: 'Open Sans light';
+    color: rgb(255, 255, 255);
+}
