@@ -27,7 +27,7 @@ const TopMoviesRating = () => {
 
                 {error && <p className={Styles.error}>{error}</p>}
                 {loading && <p className={Styles.loading}>Loading...</p>}
-                {data ?.map((movie,index) => {
+                {data ? data.map((movie,index) => {
                     return (
                         <div className={Styles.item} key={index}>
                             <div className={Styles.item_numberLine}>
@@ -43,7 +43,7 @@ const TopMoviesRating = () => {
                             </div>
                         </div>
                     )
-                })}   
+                }) : <p className={Styles.loading}>Loading...</p>}   
             </div>
         </div>
     );
