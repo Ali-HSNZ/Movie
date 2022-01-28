@@ -17,6 +17,7 @@ import "swiper/css/free-mode"
 import SwiperCore, {
   FreeMode,Navigation
 } from 'swiper';
+import { Skeleton } from "@mui/material";
 
 SwiperCore.use([FreeMode , Navigation]);
 
@@ -25,9 +26,23 @@ const BestComedyMiniSlider = () => {
     const {data , loading , error} = useSelector(state =>state.BestMoviesByComedy)
     const dispatch = useDispatch()
 
+    const NumOfvideos = 18;
     useEffect(()=>{
-        dispatch(getAsyncBestMoviesByComedy({byGenre : "Comedy" , count : 15}))
+        dispatch(getAsyncBestMoviesByComedy({byGenre : "Comedy" , count : NumOfvideos}))
     },[])
+
+    const renderSkeleton = ()=>{
+        let content = [];
+        for (let index = 0; index < NumOfvideos; index++) {
+            content.push(
+                <SwiperSlide>
+                    <Skeleton  variant="rectangular" width={215} height={268} sx={{ bgcolor: "#1d1d2e" }}/>
+                </SwiperSlide>   
+            );
+        }
+        return content
+    }
+
 
     return (  
         <div className="slider_miniSlider">
@@ -36,7 +51,7 @@ const BestComedyMiniSlider = () => {
                 <AiFillCaretRight/>
             </div>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
-                {loading && <p className={Styles.loading}>Loading...</p>}
+                {loading && renderSkeleton()}
                 {error && <p className={Styles.error}>{error}</p>}
                 {data ? data.map((movie,index) => {
                     return (
@@ -44,7 +59,7 @@ const BestComedyMiniSlider = () => {
                             <MiniSliderSlideCommon movie={movie}/>
                         </SwiperSlide>
                     );
-                }) : <p className={Styles.loading}>Loading...</p>}
+                }) : renderSkeleton()}
             </Swiper>
         </div>
     );
