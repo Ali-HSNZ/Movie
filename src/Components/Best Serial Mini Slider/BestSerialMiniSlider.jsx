@@ -34,7 +34,7 @@ const BestSerialMiniSlider = () => {
 
     const renderSkeleton = ()=>{
         let content = [];
-        for (let index = 0; index <= NumOfvideos; index++) {
+        for (let index = 0; index < NumOfvideos; index++) {
             content.push(
                 <SwiperSlide>
                     <Skeleton  variant="rectangular" width={215} height={268} sx={{ bgcolor: "#1d1d2e" }}/>
