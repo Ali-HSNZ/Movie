@@ -10,6 +10,7 @@ import {getAsyncComingSoonMovies} from '../../../Redux/Coming Soon Movies/Coming
 
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { Skeleton } from '@mui/material';
 const Slider = () => {
 
 const {data , loading , error} = useSelector(state => state.comingSoonMovies)
@@ -22,7 +23,7 @@ const {data , loading , error} = useSelector(state => state.comingSoonMovies)
 
     return (  
         <div className='slider_slideGenreBanner'>
-            {loading && <p className={Styles.loading}>Loading data...</p>}
+            {loading &&  <Skeleton  variant="rectangular" width={753} height={400} sx={{ bgcolor: "#1d1d2e" }}/>}
             {error && <p className={Styles.error}>{error}</p>}
             <Swiper spaceBetween={0} slidesPerView={1} navigation>
                 {data ?.map((movie,index) => {
