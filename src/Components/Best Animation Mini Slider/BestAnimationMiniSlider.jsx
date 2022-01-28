@@ -27,22 +27,23 @@ const BestAnimationMiniSlider = () => {
         dispatch(getAsyncBestMoviesByAnimation({byGenre : "Animation" , count : 16}))
     },[])
 
+
     return (  
         <div className="slider_miniSlider">
             <div className={Styles.silderTitle}>
-                <a href="/">The best Animation Movie in 2021</a>
+                <a href="/">Best Animation Movie in 2021</a>
                 <AiFillCaretRight/>
             </div>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
                {loading && <p className={Styles.loading}>Loading...</p>}
                {error && <p className={Styles.error}>{error}</p>}
-                {data ?.map((movie,index) => {
+                {data ? data.map((movie,index) => {
                     return (
                         <SwiperSlide className={Styles.sliderSlideParent} key={index}>
-                            <img className={Styles.sliderSlide} src={`https://img.gs/knzwmsmxwd/268x215,quality=low/${movie.image_url}`}/>
+                            <img className={Styles.sliderSlide} src={`https://img.gs/knzwmsmxwd/268x215,quality=low/${movie.banner}`}/>
                         </SwiperSlide>
                     )
-                })}
+                }) : <p className={Styles.loading}>Loading...</p>}
             </Swiper>
         </div>
     );
