@@ -22,18 +22,16 @@
     margin-top: 20px;
 }
 
-.item , .itemSkeleton{
+.item{
     height: auto;
+    background-color: rgb(20, 20, 20);
+    border: 10px solid #000000;
     border-radius: 3px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     color: white;
-}
-.item{
-    background-color: rgb(20, 20, 20);
-    border: 10px solid #000000;
 }
 .item:hover{
     transform: scale(1.010);
