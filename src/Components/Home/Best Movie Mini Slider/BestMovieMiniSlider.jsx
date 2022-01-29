@@ -11,25 +11,24 @@ import "swiper/css/free-mode"
 import SwiperCore, {
   FreeMode,Navigation
 } from 'swiper';
-
-import { useDispatch } from "react-redux";
-import { getAsyncTopRatingTvShow } from "../../Redux/Top Rating Tv Show/TopRatingTvShowReducer";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import MiniSliderSlideCommon from "../../Common/Mini Slider Slide/MiniSliderSlide";
+import { getAsyncPopularMovies } from "../../../Redux/Popular Movies/PopularMoviesReducer";
+
+import { useDispatch , useSelector} from "react-redux";
+import MiniSliderSlideCommon from "../../../Common/Mini Slider Slide/MiniSliderSlide";
 import { Skeleton } from "@mui/material";
 
 SwiperCore.use([FreeMode , Navigation]);
 
-const TopRatedTvShow = () => {
-
+const BestMovieMiniSlider = () => {
     const dispatch = useDispatch()
-    const {data , loading , error} = useSelector(state => state.TopRatingTvShow)
 
-    const NumOfvideos = 18; 
+    const {data , loading , error} = useSelector(state =>state.PopularMovies)
+
+    const NumOfvideos = 18;
     useEffect(()=>{
-        dispatch(getAsyncTopRatingTvShow(NumOfvideos))
-    } , [])
+        dispatch(getAsyncPopularMovies(NumOfvideos))
+    },[])
 
     const renderSkeleton = ()=>{
         let content = [];
@@ -48,21 +47,22 @@ const TopRatedTvShow = () => {
     return (  
         <div className="slider_miniSlider">
             <div className={Styles.silderTitle}>
-                <a href="/">Top Rated Tv Show</a>
+                <a href="/">Popular Movies</a>
                 <AiFillCaretRight/>
             </div>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
                 {loading && renderSkeleton()}
                 {error && <p className={Styles.error}>{error}</p>}
-                {data ? data.map((movie,index) => {
-                    return (
-                        <SwiperSlide  key={index}>
+                {data?data.map((movie,index) => {
+                    return(
+                        <SwiperSlide key={index}>
                             <MiniSliderSlideCommon movie={movie}/>
                         </SwiperSlide>
                     )
-                }) : renderSkeleton()}    
+                }) : renderSkeleton()}
             </Swiper>
         </div>
     );
 }
-export default TopRatedTvShow;
+ 
+export default BestMovieMiniSlider;

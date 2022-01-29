@@ -5,32 +5,31 @@ import Styles from '../Mini Slider Style/MiniSlider.module.css'
 
 import { AiFillCaretRight } from "react-icons/ai";
 
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAsyncPopularSeries } from "../../Redux/Popular Series Tvs/PopularSeriesTvsReducer";
-
-
-// Slider ==>
 import "swiper/css";
 import "swiper/css/free-mode"
+
 import SwiperCore, {
-    FreeMode,Navigation
+  FreeMode,Navigation
 } from 'swiper';
-import MiniSliderSlideCommon from "../../Common/Mini Slider Slide/MiniSliderSlide";
-import {Skeleton } from "@mui/material";
-// <==  Slider 
+
+import { useDispatch } from "react-redux";
+import { getAsyncTopRatingTvShow } from "../../../Redux/Top Rating Tv Show/TopRatingTvShowReducer";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import MiniSliderSlideCommon from "../../../Common/Mini Slider Slide/MiniSliderSlide";
+import { Skeleton } from "@mui/material";
 
 SwiperCore.use([FreeMode , Navigation]);
 
-const BestSerialMiniSlider = () => {
+const TopRatedTvShow = () => {
 
     const dispatch = useDispatch()
-    const {data , loading , error} = useSelector(state => state.popularSeriesTvs)
-    
-    const NumOfvideos = 18;
+    const {data , loading , error} = useSelector(state => state.TopRatingTvShow)
+
+    const NumOfvideos = 18; 
     useEffect(()=>{
-        dispatch(getAsyncPopularSeries(NumOfvideos));
-    },[])
+        dispatch(getAsyncTopRatingTvShow(NumOfvideos))
+    } , [])
 
     const renderSkeleton = ()=>{
         let content = [];
@@ -45,27 +44,25 @@ const BestSerialMiniSlider = () => {
         }
         return content
     }
-        
+
     return (  
         <div className="slider_miniSlider">
             <div className={Styles.silderTitle}>
-                <a href="/">Popular Series TVs</a>
+                <a href="/">Top Rated Tv Show</a>
                 <AiFillCaretRight/>
             </div>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
-                {loading && renderSkeleton() }
-                {error &&  <p className={Styles.error}>{error}</p>}
+                {loading && renderSkeleton()}
+                {error && <p className={Styles.error}>{error}</p>}
                 {data ? data.map((movie,index) => {
-                    if(index > 1)
                     return (
-                        <SwiperSlide key={index}>
+                        <SwiperSlide  key={index}>
                             <MiniSliderSlideCommon movie={movie}/>
                         </SwiperSlide>
-                    );
-                }) : renderSkeleton()}
+                    )
+                }) : renderSkeleton()}    
             </Swiper>
         </div>
     );
 }
- 
-export default BestSerialMiniSlider;
+export default TopRatedTvShow;

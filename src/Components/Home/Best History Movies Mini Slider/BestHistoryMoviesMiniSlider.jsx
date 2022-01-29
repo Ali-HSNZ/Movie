@@ -5,31 +5,29 @@ import Styles from '../Mini Slider Style/MiniSlider.module.css'
 
 import { AiFillCaretRight } from "react-icons/ai";
 
-// Slider ==>
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAsyncBestMoviesByHistory } from "../../../Redux/Best History Movies/BestHistoryMovies";
+
 
 import "swiper/css";
 import "swiper/css/free-mode"
-
 import SwiperCore, {
   FreeMode,Navigation
 } from 'swiper';
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getAsyncBestMoviesByFamily } from "../../Redux/Best Family Movies/BestFamilyMovies";
-import MiniSliderSlideCommon from "../../Common/Mini Slider Slide/MiniSliderSlide";
+import MiniSliderSlideCommon from "../../../Common/Mini Slider Slide/MiniSliderSlide";
 import { Skeleton } from "@mui/material";
 
 SwiperCore.use([FreeMode , Navigation]);
 
+const BestHistorySeriesMiniSlider = () => {
 
-const BestFamilyMovieMiniSlider = () => {
-
+    const {data , loading , error} = useSelector(state =>state.BestMoviesByHistory)
     const dispatch = useDispatch()
-    const {data , loading , error} = useSelector(state => state.BestMoviesByFamily)
 
     const NumOfvideos = 18;
     useEffect(()=>{
-        dispatch(getAsyncBestMoviesByFamily(NumOfvideos))
+        dispatch(getAsyncBestMoviesByHistory(NumOfvideos))
     },[])
 
     const renderSkeleton = ()=>{
@@ -49,7 +47,7 @@ const BestFamilyMovieMiniSlider = () => {
     return (  
         <div className="slider_miniSlider">
             <div className={Styles.silderTitle}>
-                <a  href="#">Best Family Movies</a>
+                <a href="/">Best History Movies</a>
                 <AiFillCaretRight/>
             </div>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
@@ -60,11 +58,11 @@ const BestFamilyMovieMiniSlider = () => {
                         <SwiperSlide key={index}>
                             <MiniSliderSlideCommon movie={movie}/>
                         </SwiperSlide>
-                    )
-                 }) : renderSkeleton()}
+                    );
+                }) : renderSkeleton()}
             </Swiper>
         </div>
     );
 }
  
-export default BestFamilyMovieMiniSlider;
+export default BestHistorySeriesMiniSlider;

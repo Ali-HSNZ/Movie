@@ -6,7 +6,7 @@ import 'swiper/css/navigation';
 import './manageSlider.css'
 import { useEffect } from 'react';
 
-import {getAsyncComingSoonMovies} from '../../../Redux/Coming Soon Movies/ComingSoonMovies'
+import {getAsyncComingSoonMovies} from '../../../../Redux/Coming Soon Movies/ComingSoonMovies'
 
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';

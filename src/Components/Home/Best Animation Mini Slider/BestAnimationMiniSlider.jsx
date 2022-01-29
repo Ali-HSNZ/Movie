@@ -7,7 +7,7 @@ import { AiFillCaretRight } from "react-icons/ai";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getAsyncBestMoviesByAnimation } from "../../Redux/Best Animation Movies/BestAnimationMoviesReducer";
+import { getAsyncBestMoviesByAnimation } from "../../../Redux/Best Animation Movies/BestAnimationMoviesReducer";
 
 import "swiper/css";
 import "swiper/css/free-mode"
@@ -15,7 +15,7 @@ import "swiper/css/free-mode"
 import SwiperCore, {
   FreeMode,Navigation
 } from 'swiper';
-import MiniSliderSlideCommon from "../../Common/Mini Slider Slide/MiniSliderSlide";
+import MiniSliderSlideCommon from "../../../Common/Mini Slider Slide/MiniSliderSlide";
 import { Skeleton } from "@mui/material";
 
 SwiperCore.use([FreeMode , Navigation]);

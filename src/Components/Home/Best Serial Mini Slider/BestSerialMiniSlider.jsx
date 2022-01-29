@@ -5,28 +5,31 @@ import Styles from '../Mini Slider Style/MiniSlider.module.css'
 
 import { AiFillCaretRight } from "react-icons/ai";
 
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getAsyncBestMoviesByWar } from "../../Redux/Best War Movies/BestWarMoviesReducer";
+import { getAsyncPopularSeries } from "../../../Redux/Popular Series Tvs/PopularSeriesTvsReducer";
 
+
+// Slider ==>
 import "swiper/css";
 import "swiper/css/free-mode"
-
 import SwiperCore, {
-  FreeMode,Navigation
+    FreeMode,Navigation
 } from 'swiper';
-import MiniSliderSlideCommon from "../../Common/Mini Slider Slide/MiniSliderSlide";
-import { Skeleton } from "@mui/material";
+import MiniSliderSlideCommon from "../../../Common/Mini Slider Slide/MiniSliderSlide";
+import {Skeleton } from "@mui/material";
+// <==  Slider 
 
 SwiperCore.use([FreeMode , Navigation]);
 
-const BestWarMovieMiniSlider = () => {
-    const {data , error , loading} = useSelector(state => state.BestMoviesByWar)
-    const dispatch = useDispatch()
+const BestSerialMiniSlider = () => {
 
+    const dispatch = useDispatch()
+    const {data , loading , error} = useSelector(state => state.popularSeriesTvs)
+    
     const NumOfvideos = 18;
     useEffect(()=>{
-        dispatch(getAsyncBestMoviesByWar(NumOfvideos))
+        dispatch(getAsyncPopularSeries(NumOfvideos));
     },[])
 
     const renderSkeleton = ()=>{
@@ -42,26 +45,27 @@ const BestWarMovieMiniSlider = () => {
         }
         return content
     }
-
+        
     return (  
         <div className="slider_miniSlider">
             <div className={Styles.silderTitle}>
-                <a  href="#">Best War Movies</a>
+                <a href="/">Popular Series TVs</a>
                 <AiFillCaretRight/>
             </div>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
-                {loading && renderSkeleton()}
-                {error && <p className={Styles.error}>{error}</p>}
+                {loading && renderSkeleton() }
+                {error &&  <p className={Styles.error}>{error}</p>}
                 {data ? data.map((movie,index) => {
-                    return(
+                    if(index > 1)
+                    return (
                         <SwiperSlide key={index}>
                             <MiniSliderSlideCommon movie={movie}/>
                         </SwiperSlide>
-                    )
+                    );
                 }) : renderSkeleton()}
             </Swiper>
         </div>
     );
 }
  
-export default BestWarMovieMiniSlider;
+export default BestSerialMiniSlider;

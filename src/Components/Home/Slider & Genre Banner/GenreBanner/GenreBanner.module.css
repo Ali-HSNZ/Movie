@@ -29,15 +29,15 @@
     overflow: hidden;
 }
 .parentDiv:nth-child(1) .parentDivChildren{
-    background-image: url('../../../images/yodha_sidharth_malhotra_poster__ccexpress (1).jpeg');
+    background-image: url('../../../../images/yodha_sidharth_malhotra_poster__ccexpress (1).jpeg');
    background-repeat: no-repeat;
     background-size: cover ;
 }
 .parentDiv:nth-child(2) .parentDivChildren{
-    background-image: url('../../../images/1025099-animation-and-vfx-fall-2015-movie-preview_ccexpress.jpeg');
+    background-image: url('../../../../images/1025099-animation-and-vfx-fall-2015-movie-preview_ccexpress.jpeg');
 }
 .parentDiv:nth-child(3) .parentDivChildren{
-    background-image: url('../../../images/19121405-hometown-cha_cover_1500x892_ccexpress.jpeg');
+    background-image: url('../../../../images/19121405-hometown-cha_cover_1500x892_ccexpress.jpeg');
 }
 .parentDivChildren:hover{
     transform: scale(1.0090);

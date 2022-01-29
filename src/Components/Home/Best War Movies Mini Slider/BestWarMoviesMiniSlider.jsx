@@ -5,29 +5,28 @@ import Styles from '../Mini Slider Style/MiniSlider.module.css'
 
 import { AiFillCaretRight } from "react-icons/ai";
 
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAsyncBestMoviesByWar } from "../../../Redux/Best War Movies/BestWarMoviesReducer";
+
 import "swiper/css";
 import "swiper/css/free-mode"
 
 import SwiperCore, {
   FreeMode,Navigation
 } from 'swiper';
-import { useEffect } from "react";
-import { getAsyncPopularMovies } from "../../Redux/Popular Movies/PopularMoviesReducer";
-
-import { useDispatch , useSelector} from "react-redux";
-import MiniSliderSlideCommon from "../../Common/Mini Slider Slide/MiniSliderSlide";
+import MiniSliderSlideCommon from "../../../Common/Mini Slider Slide/MiniSliderSlide";
 import { Skeleton } from "@mui/material";
 
 SwiperCore.use([FreeMode , Navigation]);
 
-const BestMovieMiniSlider = () => {
+const BestWarMovieMiniSlider = () => {
+    const {data , error , loading} = useSelector(state => state.BestMoviesByWar)
     const dispatch = useDispatch()
-
-    const {data , loading , error} = useSelector(state =>state.PopularMovies)
 
     const NumOfvideos = 18;
     useEffect(()=>{
-        dispatch(getAsyncPopularMovies(NumOfvideos))
+        dispatch(getAsyncBestMoviesByWar(NumOfvideos))
     },[])
 
     const renderSkeleton = ()=>{
@@ -47,13 +46,13 @@ const BestMovieMiniSlider = () => {
     return (  
         <div className="slider_miniSlider">
             <div className={Styles.silderTitle}>
-                <a href="/">Popular Movies</a>
+                <a  href="#">Best War Movies</a>
                 <AiFillCaretRight/>
             </div>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
                 {loading && renderSkeleton()}
                 {error && <p className={Styles.error}>{error}</p>}
-                {data?data.map((movie,index) => {
+                {data ? data.map((movie,index) => {
                     return(
                         <SwiperSlide key={index}>
                             <MiniSliderSlideCommon movie={movie}/>
@@ -65,4 +64,4 @@ const BestMovieMiniSlider = () => {
     );
 }
  
-export default BestMovieMiniSlider;
+export default BestWarMovieMiniSlider;

@@ -7,7 +7,9 @@ import { AiFillCaretRight } from "react-icons/ai";
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAsyncBestMoviesByHistory } from "../../Redux/Best History Movies/BestHistoryMovies";
+import { getAsyncBestMoviesByComedy } from "../../../Redux/Best Comedy Movies/BestComedyMoviesReducer";
+
+import MiniSliderSlideCommon from "../../../Common/Mini Slider Slide/MiniSliderSlide";
 
 
 import "swiper/css";
@@ -15,19 +17,18 @@ import "swiper/css/free-mode"
 import SwiperCore, {
   FreeMode,Navigation
 } from 'swiper';
-import MiniSliderSlideCommon from "../../Common/Mini Slider Slide/MiniSliderSlide";
 import { Skeleton } from "@mui/material";
 
 SwiperCore.use([FreeMode , Navigation]);
 
-const BestHistorySeriesMiniSlider = () => {
+const BestComedyMiniSlider = () => {
 
-    const {data , loading , error} = useSelector(state =>state.BestMoviesByHistory)
+    const {data , loading , error} = useSelector(state =>state.BestMoviesByComedy)
     const dispatch = useDispatch()
 
     const NumOfvideos = 18;
     useEffect(()=>{
-        dispatch(getAsyncBestMoviesByHistory(NumOfvideos))
+        dispatch(getAsyncBestMoviesByComedy({byGenre : "Comedy" , count : NumOfvideos}))
     },[])
 
     const renderSkeleton = ()=>{
@@ -44,10 +45,11 @@ const BestHistorySeriesMiniSlider = () => {
         return content
     }
 
+
     return (  
         <div className="slider_miniSlider">
             <div className={Styles.silderTitle}>
-                <a href="/">Best History Movies</a>
+                <a href="/">Best Comedy Movies</a>
                 <AiFillCaretRight/>
             </div>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
@@ -65,4 +67,4 @@ const BestHistorySeriesMiniSlider = () => {
     );
 }
  
-export default BestHistorySeriesMiniSlider;
+export default BestComedyMiniSlider;

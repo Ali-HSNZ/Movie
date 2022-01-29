@@ -1,22 +1,19 @@
-import Styles from "./AllSeriesByGenre.module.css"
+import Styles from "./AllMoviesByGenre.module.css"
 import { AiFillCaretRight } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { getAsyncAllMoviesByGenre } from "../../../Redux/All Movies by Genres/AllMoviesByGenres";
 import { useSelector } from "react-redux";
-import { getAsyncAllMoviesByGenres } from "../../Redux/All Series By Genre/AllSeriesByGenre";
 import { Skeleton } from "@mui/material";
 
-const AllSeriesByGenre = () => {
+const AllMoviesByGenre = () => {
     
     const dispatch = useDispatch()
 
     const NumOfvideos = 9;
     useEffect(()=>{
-        dispatch(getAsyncAllMoviesByGenres(NumOfvideos))
+        dispatch(getAsyncAllMoviesByGenre(NumOfvideos))
     },[])
-
-    const {data , loading , error} = useSelector(state => state.AllSeriesByGenres)
-
     const renderSkeleton = ()=>{
         let content = [];
         for (let index = 0; index < NumOfvideos; index++) {
@@ -26,12 +23,13 @@ const AllSeriesByGenre = () => {
         }
         return content
     }
+    const {data , loading , error} = useSelector(state => state.AllMoviesByGenre)
 
     return (  
         <div className={Styles.parent}>
             <div className={Styles.header}>
                 <p className={Styles.headerTitle}>
-                    All Series By Genres
+                    All Movies By  Genres
                     <AiFillCaretRight/>
                 </p>
             </div>
@@ -43,7 +41,6 @@ const AllSeriesByGenre = () => {
                     // slashOne ==>  http://47.254.174.28/movie/byGen/
                     // slashTwo ==>  /?
                     // genreName ===> http://47.254.174.28/movie/byGen/   <Genre Name>     /? 
-
                     const slashOne = genre.next.indexOf("byGen/"); 
                     const slashTwo = genre.next.indexOf("/?"); 
                     const genreName = genre.next.substring(slashOne +6, slashTwo)
@@ -55,6 +52,7 @@ const AllSeriesByGenre = () => {
                                     <p>{index+1}</p>
                                     <section className={Styles.genreLine}></section>
                                 </section>
+                                
                                 <p className={Styles.genreTitle}>{genreName}</p>
                                 <button className={Styles.genreSubmit}>Go</button>
                             </div>
@@ -63,8 +61,9 @@ const AllSeriesByGenre = () => {
                     )
                 }) : renderSkeleton()}
             </div>
+
             {data && data.length !== 0 ? <div className={Styles.cover}><a href="/">Load More</a></div> : null}
         </div>
     );
 }
-export default AllSeriesByGenre;
+export default AllMoviesByGenre;

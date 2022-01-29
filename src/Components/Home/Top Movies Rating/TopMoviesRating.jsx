@@ -3,7 +3,7 @@ import { AiFillCaretRight } from "react-icons/ai";
 import { BsFillCaretRightFill } from "react-icons/bs";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAsyncRatingMovies } from "../../Redux/Top Rating Movies/TopRatingMoviesReducer";
+import { getAsyncRatingMovies } from "../../../Redux/Top Rating Movies/TopRatingMoviesReducer";
 import { Skeleton } from "@mui/material";
 
 const TopMoviesRating = () => {
