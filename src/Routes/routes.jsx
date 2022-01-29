@@ -3,6 +3,6 @@ import MoviePage from "../Pages/Movie/Movie"
 
  const pageRoutes = [
     {id : 1 , path : "/" , element : <Home/> },
-    {id : 2 , path : "/movie/:id" , element : <MoviePage/> },
+    {id : 2 , path : "/movie/:id*" , element : <MoviePage/> },
 ]
 export default pageRoutes
