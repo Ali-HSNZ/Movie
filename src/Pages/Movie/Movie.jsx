@@ -1,6 +1,9 @@
+import NavTabs from '../../Components/Movie/Tab/NavTab'
 const MoviePage = () => {
-    return (  
-        <h1>Movie Page</h1>
+    return (
+        <>
+            <NavTabs/>
+        </>  
     );
 }
  
