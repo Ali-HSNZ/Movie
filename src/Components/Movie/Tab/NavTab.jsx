@@ -4,7 +4,7 @@ import { Skeleton } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import {getAsyncMovieDataWithImdbId} from '../../../Redux/Get Movie Data With imdb Id/GetMovieDataWithImdbId'
 import {useQuery} from '../../../hooks/useQuery'
-import {Main , Actor , ProductionLocations , AllNews , Awards} from '../Components';
+import {Main , Actor , ProductionLocations , AllNews , Awards} from '../MovieNavTab';
 import { useEffect } from 'react';
 
 
