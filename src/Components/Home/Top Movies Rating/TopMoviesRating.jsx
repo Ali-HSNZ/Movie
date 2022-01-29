@@ -19,7 +19,7 @@ const TopMoviesRating = () => {
         let content = [];
         for (let index = 0; index < NumOfvideos; index++) {
             content.push(
-                <Skeleton  variant="rectangular" height={79} sx={{ bgcolor: "#1d1d2e" }} className={Styles.itemSkeleton}/>
+                <Skeleton key={index} variant="rectangular" height={79} sx={{ bgcolor: "#1d1d2e" }} className={Styles.itemSkeleton}/>
             );
         }
         return content

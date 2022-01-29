@@ -21,7 +21,7 @@ const AllSeriesByGenre = () => {
         let content = [];
         for (let index = 0; index < NumOfvideos; index++) {
             content.push(
-                <Skeleton  variant="rectangular" height={108} sx={{ bgcolor: "#1d1d2e" }} className={Styles.rowItem}/>
+                <Skeleton key={index} variant="rectangular" height={108} sx={{ bgcolor: "#1d1d2e" }} className={Styles.rowItem}/>
             );
         }
         return content
