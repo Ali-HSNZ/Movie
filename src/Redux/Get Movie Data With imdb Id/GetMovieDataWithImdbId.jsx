@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { imdb8_apiKey } from "../../Services/API_KEY";
 
-export const  getAsyncMovieDataWithImdbId = createAsyncThunk("Movies/GetMovieDataWithImdbId" , async(movieId ,{rejectWithValue}) => {
+export const  getAsyncMovieDataWithImdbId = createAsyncThunk("Movies/GetMovieDataWithImdbId" , async(movieId ,{rejectWithValue}) => {    
     try {
         const movieData = await axios.get(`https://data-imdb1.p.rapidapi.com/movie/id/${movieId}/`,{
             headers : {
@@ -10,6 +10,7 @@ export const  getAsyncMovieDataWithImdbId = createAsyncThunk("Movies/GetMovieDat
                 'x-rapidapi-key': 'bc4dd2d022msh82cb1b347411b36p1fbf31jsn0ebb7514b3f9'
             }
         })
+        return movieData.data.results
     } catch (error) {
         return rejectWithValue(error.message)
     }
