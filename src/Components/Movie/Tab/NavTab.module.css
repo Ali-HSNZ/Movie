@@ -19,14 +19,17 @@
     border-radius: 3px;
     font-size: 15px;
 }
+.tabParent a:hover{
+    transform: scale(1.050);
+}
 .tabActive{
     background-color: #f1d900;
     color: #000000;
-
 }
 .tabNotActive{
     background-color: #18202c;
-    color: #ffffff;
+    color: #d3d3d3;
+    border: 1px dashed #9e8e00;
 }
 .error{
     color: rgb(255, 27, 27);
