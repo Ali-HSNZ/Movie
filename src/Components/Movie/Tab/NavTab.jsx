@@ -7,18 +7,17 @@ import {useQuery} from '../../../hooks/useQuery'
 import {Main , Actor , ProductionLocations , AllNews , Awards} from '../MovieNavTab';
 import { useEffect } from 'react';
 
-
-function NavTabs(props) {
+function NavTabs() {
 
     const query = useQuery().get("id")
 
     const {data , loading , error} = useSelector(state => state.MovieDataWithImdbId)
 
+
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(getAsyncMovieDataWithImdbId(query))
     },[query])
-
 
     return (
         <>
@@ -28,10 +27,11 @@ function NavTabs(props) {
             
             <div className={Styles.tabParent}>
                <NavLink className={({isActive}) => isActive ? Styles.tabActive : Styles.tabNotActive} to={{pathname:"main" , search:`id=${query}`}}> Main</NavLink>
-               <NavLink className={({isActive}) => isActive ? Styles.tabActive : Styles.tabNotActive}  to={{pathname:"actors" , search:`id=${query}`}}>Actors</NavLink>
+               <NavLink className={({isActive}) => isActive ? Styles.tabActive : Styles.tabNotActive}  to={{pathname:"Cast" , search:`id=${query}`}}>Actors</NavLink>
                <NavLink className={({isActive}) => isActive ? Styles.tabActive : Styles.tabNotActive}  to={{pathname:"production-locations" , search:`id=${query}`}}>Production locations</NavLink>
                <NavLink className={({isActive}) => isActive ? Styles.tabActive : Styles.tabNotActive}  to={{pathname:"awards" , search:`id=${query}`}}>Awards</NavLink>
                <NavLink className={({isActive}) => isActive ? Styles.tabActive : Styles.tabNotActive}  to={{pathname:"all-news" , search:`id=${query}`}}>All News</NavLink>
+               <NavLink className={({isActive}) => isActive ? Styles.tabActive : Styles.tabNotActive}  to={{pathname:"reviews" , search:`id=${query}`}}>Reviews</NavLink>
             </div>
 
             <Routes>
@@ -40,6 +40,7 @@ function NavTabs(props) {
                 <Route path={`/production-locations`} element={<ProductionLocations/>}></Route>
                 <Route path={`/awards`} element={<Awards/>}></Route>
                 <Route path={`/all-news`} element={< AllNews/>}></Route>
+                <Route path={`/reviews`} element={< AllNews/>}></Route>
             </Routes>
             
         </>
