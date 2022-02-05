@@ -26,7 +26,6 @@ const MovieNewsWithImdbId = createSlice({
             return {newsData : [] , newsError : null , newsLoading : true} 
         },
         [getAsyncNewsDataWithImdbId.fulfilled] : ( state , action ) => {
-            console.log("action.payload : ",action.payload)
             return {newsData : action.payload , newsError : null , newsLoading : false}
         },
         [getAsyncNewsDataWithImdbId.rejected] : ( state , action ) => {
