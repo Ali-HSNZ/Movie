@@ -89,9 +89,9 @@ export const MovieDetail = () => {
 
                 <div className={Styles.propertiesGroup}>
                     <span className={Styles.propertiesGroup_title}>Gen : </span>
-                    {data.gen ? data.gen.map(gen => {
+                    {data.gen ? data.gen.map((gen,index) => {
                         return (
-                            <span className={Styles.propertiesGroup_detail}>{gen.genre} , </span>
+                            <span className={Styles.propertiesGroup_detail} key={index}>{gen.genre} , </span>
                         )
                     }) : <span className={Styles.propertiesGroup_detail}>Unkown</span>}
                 </div>
@@ -165,28 +165,24 @@ export const News = () => {
     const numOfNewsOnPage = 6;
     const newsReaded = newsPageNum * numOfNewsOnPage;
     const showNews = newsData.slice(newsReaded , newsReaded + numOfNewsOnPage)
-    .map(item => {
+    .map((item,index) => {
         return (
-            <Accordion>
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{color:"#fff"}}/>}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-                sx={{bgcolor:"#1c1c2b" , color:"#cccccc"}}
-                >
-                    <Typography>{item.head}</Typography>
-            </AccordionSummary>
-            <AccordionDetails 
-                sx={{
-                    bgcolor:"#222236" ,
-                     color:"#cccccc",
-    
-                }}
-            >
-                <Typography sx={{fontWeight:"100",fontSize:"14px" , fontFamily:"Open Sans light", lineHeight:"26px"}}>{item.body}</Typography>
-                
-            </AccordionDetails>
-        </Accordion>
+            <Accordion key={index}>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon sx={{color:"#fff"}}/>}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                    sx={{bgcolor:"#1c1c2b" , color:"#cccccc"}}>
+                        <Typography>{item.head}</Typography>
+                </AccordionSummary>
+                <AccordionDetails 
+                    sx={{
+                        bgcolor:"#222236" ,
+                        color:"#cccccc",
+                    }}>
+                    <Typography sx={{fontWeight:"100",fontSize:"14px" , fontFamily:"Open Sans light", lineHeight:"26px"}}>{item.body}</Typography>    
+                </AccordionDetails>
+            </Accordion>
         )
     })
     const pageCount = newsData ? Math.ceil(newsData.length / numOfNewsOnPage) : 0
