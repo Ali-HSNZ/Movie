@@ -29,7 +29,7 @@ export const MovieDetail = () => {
     const movie_min = data && Math.floor(data.movie_length % 60);
 
     return (  
-        <header className={Styles.header}>
+        <div className={Styles.movieDetail}>
             <div className={Styles.imgParent}>
                 {data.banner ? (
                     <img src={`https://img.gs/knzwmsmxwd/187x280,quality=high/${data.banner}`}/>
@@ -88,6 +88,6 @@ export const MovieDetail = () => {
                 </div>
 
             </div>
-        </header>
+        </div>
     );
 }
