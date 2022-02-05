@@ -1,1 +1,1 @@
-export const imdb8_apiKey = "8d2485c81amsh87a5462f5d04c5ap17af66jsnd21a95fadc06";
+export const imdb8_apiKey = "510fe9ef52msh82aa4b66ebccd8cp16d98djsn64a027efec60";
