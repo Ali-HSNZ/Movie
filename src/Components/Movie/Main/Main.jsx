@@ -2,8 +2,9 @@ import Styles from "./Main.module.css"
 import { useDispatch, useSelector } from "react-redux"
 import { useQuery } from "../../../hooks/useQuery"
 import { getAsyncMovieDataWithImdbId } from "../../../Redux/Get Movie Data With imdb Id/GetMovieDataWithImdbId"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Skeleton} from "@mui/material"
+import { getAsyncSynopsesDataWithImdbId } from "../../../Redux/Get Movie Synopses With Imdb Id/GetMovieSynopsesWithImdbId"
 
 const Main = () => {
     const query = useQuery().get("id")
@@ -11,11 +12,13 @@ const Main = () => {
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(getAsyncMovieDataWithImdbId(query))
+        dispatch(getAsyncSynopsesDataWithImdbId(query))
     },[query])
 
     return (  
         <div className={Styles.parent}>
             <MovieDetail/>
+            <Synopses/>
         </div>
     )
 }
@@ -88,6 +91,49 @@ export const MovieDetail = () => {
                 </div>
 
             </div>
+        </div>
+    );
+}
+
+
+export const Synopses = () => {
+    const [isfullSynopses ,setIsFullSynopses] = useState(true)
+    const { synopsesData , synopsesError ,synopsesLoading } = useSelector(state => state.MovieSynopsesWithImdbId)
+
+    return (  
+        <div className={Styles.SynopsesParent}>
+            {synopsesError && <p className={Styles.error}>{synopsesError}</p>}
+            {synopsesData && synopsesData.text  ?(
+                <>
+                    <h2 className={Styles.SynopsesTitle}>Synopses : </h2>
+                    <h5 className={Styles.synopsesText}>
+                        {isfullSynopses === true && synopsesData.text.length >=1100 && synopsesData.text.substring(0,1100)+"..."}
+                        {isfullSynopses === false && synopsesData.text}
+                        <button onClick={()=>setIsFullSynopses(!isfullSynopses)} className={Styles.synopsesDataButton}>{isfullSynopses ? "More" : "Less"}</button>
+                    </h5>
+                
+                </>
+            ) :(
+                <>
+                    {synopsesLoading &&(
+                        <>
+                            <Skeleton variant='rectangular' width={187} height={33} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#1d1d2e"}}/>
+                            <Skeleton variant='rectangular' width={187} height={13} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#181824" , minWidth : "100%" }}/>   
+                            {/* Breake */}
+                            <Skeleton variant='rectangular' width={187} height={27} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#1d1d2e" , minWidth : "100%" }}/>                   
+                            <Skeleton variant='rectangular' width={187} height={13} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#181824" , minWidth : "100%" }}/>                  
+                            {/* Breake */}
+                            <Skeleton variant='rectangular' width={187} height={27} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#1d1d2e" , minWidth : "100%" }}/>  
+                            <Skeleton variant='rectangular' width={187} height={13} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#181824" , minWidth : "100%" }}/>                  
+                            {/* Breake */}
+                            <Skeleton variant='rectangular' width={187} height={27} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#1d1d2e" , minWidth : "100%" }}/>  
+                            <Skeleton variant='rectangular' width={187} height={13} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#181824" , minWidth : "100%" }}/>                  
+                            {/* Breake */}
+                            <Skeleton variant='rectangular' width={187} height={27} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#1d1d2e" , minWidth : "100%" }}/>  
+                        </>
+                    ) }
+                </>
+            )}
         </div>
     );
 }
