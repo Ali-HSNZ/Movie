@@ -22,6 +22,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { getAsyncSynopsesDataWithImdbId } from "../../../Redux/Get Movie Synopses With Imdb Id/GetMovieSynopsesWithImdbId"
 import { getAsyncNewsDataWithImdbId } from "../../../Redux/Get Movie News By Imdb Id/GetMovieNewsByImdbId"
 
+import { AiFillCaretRight } from "react-icons/ai";
+
 const Main = () => {
     const query = useQuery().get("id")
 
@@ -113,7 +115,6 @@ export const MovieDetail = () => {
     );
 }
 
-
 export const Synopses = () => {
     const [isfullSynopses ,setIsFullSynopses] = useState(true)
     const { synopsesData , synopsesError ,synopsesLoading } = useSelector(state => state.MovieSynopsesWithImdbId)
@@ -156,7 +157,6 @@ export const Synopses = () => {
     );
 }
 
-
 export const News = () => {
 
     const { newsData , newsError ,newsLoading } = useSelector(state => state.MovieNewsWithImdbId)
@@ -188,7 +188,7 @@ export const News = () => {
     const pageCount = newsData ? Math.ceil(newsData.length / numOfNewsOnPage) : 0
 
 
-    const useStyles = makeStyles((theme) =>({
+    const useStyles = makeStyles(() =>({
         root: {
             backgroundColor: 'transparent',
             color:'#181824',
@@ -223,7 +223,13 @@ export const News = () => {
         {newsError && <p className={Styles.error}>{newsError}</p>}
         {newsData && newsData.length > 0  ? (
             <>
-                <h1 className={Styles.movieNewsTitle}>News</h1>
+                <div className={Styles.movieNewsHead}>
+                    <h1 className={Styles.movieNewsTitle}>News :</h1>
+                    <a href="#">
+                        See More
+                        <AiFillCaretRight/>    
+                    </a>
+                </div>
                 <section className={Styles.movieItem}>
                     {newsData && showNews }
                 </section>
