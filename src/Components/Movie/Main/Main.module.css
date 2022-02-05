@@ -65,3 +65,44 @@
     margin: 0 10px;
     color: rgb(219, 219, 219);
 }
+
+/* ---------------------------------- */
+
+.SynopsesParent{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+.SynopsesTitle{
+    font-family: 'Open Sans light';
+    color: #cab600;
+    font-weight: 500;
+}
+.synopsesText{
+    color: #c5c5c5;
+    margin-top: 10px;
+    font-weight: 100;
+    line-height: 30px;
+    font-size: 15px;
+}
+
+.error{
+    color: rgb(255, 27, 27);
+    font-family: "Open Sans light";
+}
+.synopsesDataButton{
+    padding: 5px 20px;
+    border-radius: 5px;
+    margin: 0 5px;
+    background-color: transparent;
+    border: 1px dashed #a09000;
+    color: #c5c5c5;
+    font-family: "Open Sans light";
+    cursor: pointer;
+}
+.synopsesDataButton:hover{
+    transform: scale(1.020);
+}
+
+
+
