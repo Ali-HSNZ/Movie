@@ -8,6 +8,7 @@ import { BestMoviesByHistoryReducer } from "./Best History Movies/BestHistoryMov
 import { BestMoviesByWarReducer } from "./Best War Movies/BestWarMoviesReducer";
 import { comingSoonMoviesReducer } from "./Coming Soon Movies/ComingSoonMovies";
 import { MovieDataWithImdbIdReducer } from "./Get Movie Data With imdb Id/GetMovieDataWithImdbId";
+import { MovieSynopsesWithImdbIdReducer } from "./Get Movie Synopses With Imdb Id/GetMovieSynopsesWithImdbId";
 import { PopularMoviesReducer } from "./Popular Movies/PopularMoviesReducer";
 import { PopularSeriesTvsReducer } from "./Popular Series Tvs/PopularSeriesTvsReducer";
 import { TopRatingMoviesReducer } from "./Top Rating Movies/TopRatingMoviesReducer";
@@ -29,6 +30,7 @@ const store = configureStore({
         BestMoviesByFamily : BestMoviesByFamilyReducer,
         BestMoviesByHistory : BestMoviesByHistoryReducer,
         MovieDataWithImdbId : MovieDataWithImdbIdReducer,
+        MovieSynopsesWithImdbId : MovieSynopsesWithImdbIdReducer,
     }
 })
 export default store
