@@ -105,4 +105,20 @@
 }
 
 
+/* movieNews  ==> */
+
+.movieNewsParent{
+    width:100%;
+    margin-top: 20px;
+}
+.movieNewsTitle{
+    font-family: "Open Sans light";
+    font-weight: 100;
+    font-size: 20px;
+    color: #cab600;
+}
+.movieItem{
+    margin-top: 20px;
+}
+
 
