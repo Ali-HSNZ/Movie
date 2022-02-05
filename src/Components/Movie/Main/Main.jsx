@@ -23,6 +23,9 @@ import { getAsyncSynopsesDataWithImdbId } from "../../../Redux/Get Movie Synopse
 import { getAsyncNewsDataWithImdbId } from "../../../Redux/Get Movie News By Imdb Id/GetMovieNewsByImdbId"
 
 import { AiFillCaretRight } from "react-icons/ai";
+import { getAsyncGetMovieCastByImdbId } from "../../../Redux/Get Movie Cast By Movie Id/GetMovieCastByMovieId"
+
+import userImage from '../../../images/userImage.png'
 
 const Main = () => {
     const query = useQuery().get("id")
@@ -32,6 +35,7 @@ const Main = () => {
         dispatch(getAsyncMovieDataWithImdbId(query))
         dispatch(getAsyncSynopsesDataWithImdbId(query))
         dispatch(getAsyncNewsDataWithImdbId(query))
+        dispatch(getAsyncGetMovieCastByImdbId(query))
     },[query])
 
     return (  
@@ -39,6 +43,7 @@ const Main = () => {
             <MovieDetail/>
             <Synopses/>
             <News/>
+            <Casts/>
         </div>
     )
 }
@@ -289,4 +294,75 @@ export const News = () => {
             
         </div>
     );
+}
+
+export const Casts = () => {
+    const {castData , castLoading , castError} = useSelector(state => state.MovieCasts)
+
+
+    return(
+        <div className={Styles.castsParent}>
+            {castError && <p className={Styles.error}>{castError}</p>}
+            {castData && castData.length > 0 ? (
+                <>
+                    <header className={Styles.castsParentHead}>
+                            <h1 className={Styles.movieNewsTitle}>Casts :</h1>
+                            <a href="#">
+                                See More
+                                <AiFillCaretRight/>    
+                            </a>
+                    </header>
+                    <div className={Styles.castFooter}>
+                        {castData ?.map(cast => {
+                            return(
+                                <section className={Styles.castGroup}>
+                                    <div className={Styles.castImgParent}>
+                                    {cast.image_url && cast.image_url.length > 0 ? (
+                                        <img  src={`https://img.gs/knzwmsmxwd/34x50/${cast.image_url}`}/>
+                                    ) : (
+                                        <img  src={userImage}/>
+                                    )}
+                                    </div>
+                                    <hr/>
+                                    <div className={Styles.castTitle}>
+                                        <p>{cast.name}</p>
+                                    </div>
+                                </section>
+                            )
+                        })}
+                    </div>
+                </>
+            ) : (
+                <>
+                    {castLoading && (
+                        <>                        
+                            <Skeleton variant='rectangular' width={187} height={33} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#1d1d2e"}}/>
+                            <Skeleton variant='rectangular' width={187} height={13} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#181824" , minWidth : "100%" }}/>   
+
+                            <div style={{display:'flex',flexWrap:'wrap'}}>
+                                <Skeleton variant='rectangular'  height={25} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#1d1d2e"  , minWidth : "200px"}}/>
+                                <Skeleton variant='rectangular'  height={25} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#181824"  , minWidth : "10px"}}/>
+                                
+                                <Skeleton variant='rectangular'  height={25} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#1d1d2e"  , minWidth : "200px"}}/>
+                                <Skeleton variant='rectangular'  height={25} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#181824"  , minWidth : "10px"}}/>
+
+                                <Skeleton variant='rectangular'  height={25} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#1d1d2e"  , minWidth : "200px"}}/>
+                                <Skeleton variant='rectangular'  height={25} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#181824"  , minWidth : "10px"}}/>
+
+                                <Skeleton variant='rectangular'  height={25} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#1d1d2e"  , minWidth : "200px"}}/>
+                                <Skeleton variant='rectangular'  height={25} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#181824"  , minWidth : "10px"}}/>
+
+                                <Skeleton variant='rectangular'  height={25} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#1d1d2e"  , minWidth : "200px"}}/>
+                                <Skeleton variant='rectangular'  height={25} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#181824"  , minWidth : "10px"}}/>
+
+                                <Skeleton variant='rectangular'  height={25} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#1d1d2e"  , minWidth : "200px"}}/>
+                                <Skeleton variant='rectangular'  height={25} className = {Styles.describtionParent_keleton} sx={{ bgcolor: "#181824"  , minWidth : "10px"}}/>
+
+                            </div>
+                        </>
+                    )}
+                </>
+            )}
+        </div>
+    )
 }
