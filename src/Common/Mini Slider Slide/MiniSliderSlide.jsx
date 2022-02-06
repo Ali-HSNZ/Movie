@@ -4,7 +4,6 @@ import Styles from './MiniSliderSlide.module.css'
 const MiniSliderSlideCommon = ({movie}) => {
     const movie_hr = Math.floor(movie.movie_length/60); 
     const movie_min = Math.floor(movie.movie_length % 60)
-    console.log("movie : ",movie.type)
     return (  
         <Link className={Styles.sliderSlideParent} to={{pathname:movie.type === "movie" ? "/movie/main" : "/serial/main" , search:`id=${movie.imdb_id}`}}>
             <img className={Styles.sliderSlideImg} src={`https://img.gs/knzwmsmxwd/268x215,quality=low/${movie.banner}`}/>
@@ -29,9 +28,9 @@ const MiniSliderSlideCommon = ({movie}) => {
                 </div>
                 <div className={Styles.movieInfo}>
                     <span className={Styles.movieInfo_title}>Gen: </span>
-                    {movie.gen.map(gen => {
+                    {movie.gen.map((gen,index) => {
                         return (
-                            <span className={Styles.movieInfo_detaill}>{gen.genre} , </span>
+                            <span className={Styles.movieInfo_detaill} key={index}>{gen.genre} , </span>
                         )
                     })}
                 </div>
