@@ -178,9 +178,10 @@
     cursor: pointer;
     margin-right: 10px;
     margin-top: 10px;
+
 }
 .castGroup:hover{
-    transform: scale(1.030);
+    transform: scale(1.040);
 }
 .castImgParent{
     width: 34px;
@@ -191,10 +192,15 @@
     color: white;
 }
 
+.castGroup:hover hr{
+    border:2px solid #ffe600;
+    box-shadow: 0 0 3px 0 #ffe600;
+}
 .castGroup hr{
-    border: 1px solid #3e3e3f;
+    border: 2px solid #3e3e3f;
     margin:0 10px;
     height: 100%;
+    transition: 0.5s;
 }
 
 .castTitle{
