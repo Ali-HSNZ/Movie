@@ -6,7 +6,7 @@ export const getAsyncBestMoviesByAnimation = createAsyncThunk("Movies/BestAnimat
     try {
         const {byGenre , count} = action
 
-        const endPoint = `https://data-imdb1.p.rapidapi.com/movie/byYear/2020/byGen/${byGenre}/`
+        const endPoint = `https://data-imdb1.p.rapidapi.com/movie/byYear/2021/byGen/${byGenre}/`
         const AsyncBestAnimationMovies_list = await axios.get(endPoint ,{
             params: {page_size: count},
             headers: {
