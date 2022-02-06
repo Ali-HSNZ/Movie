@@ -30,7 +30,7 @@ const News = () => {
     const [newsPageNum , setNewsPageNum] = useState(0)
     const numOfNewsOnPage = 6;
     const newsReaded = newsPageNum * numOfNewsOnPage;
-    const showNews = newsData.slice(newsReaded , newsReaded + numOfNewsOnPage)
+    const showNews = newsData && newsData.slice(newsReaded , newsReaded + numOfNewsOnPage) 
     .map((item,index) => {
         return (
             <Accordion key={index}>
@@ -89,13 +89,13 @@ const News = () => {
         {newsError && <p className={Styles.error}>{newsError}</p>}
         {newsData && newsData.length > 0  ? (
             <>
-                <head className={Styles.titleParnet}>
+                <header className={Styles.titleParnet}>
                     <h1 className={Styles.title}>News :</h1>
                     <a href="#">
                         See More
                         <AiFillCaretRight/>    
                     </a>
-                </head>
+                </header>
                 <section className={Styles.movieItem}>
                     {newsData && showNews }
                 </section>
