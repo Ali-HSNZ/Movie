@@ -299,7 +299,6 @@ export const News = () => {
 export const Casts = () => {
     const {castData , castLoading , castError} = useSelector(state => state.MovieCasts)
 
-
     return(
         <div className={Styles.castsParent}>
             {castError && <p className={Styles.error}>{castError}</p>}
@@ -313,12 +312,12 @@ export const Casts = () => {
                             </a>
                     </header>
                     <div className={Styles.castFooter}>
-                        {castData ?.map(cast => {
+                        {castData ?.map((cast,index) => {
                             return(
-                                <section className={Styles.castGroup}>
+                                <section className={Styles.castGroup} key={index}>
                                     <div className={Styles.castImgParent}>
                                     {cast.image_url && cast.image_url.length > 0 ? (
-                                        <img  src={`https://img.gs/knzwmsmxwd/34x50/${cast.image_url}`}/>
+                                        <img  src={`https://img.gs/knzwmsmxwd/34x50,quality=low/${cast.image_url}`}/>
                                     ) : (
                                         <img  src={userImage}/>
                                     )}
