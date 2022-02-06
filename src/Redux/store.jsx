@@ -10,6 +10,7 @@ import { comingSoonMoviesReducer } from "./Coming Soon Movies/ComingSoonMovies";
 import { MovieKeywordsWithMovieIdReducer } from "./Get Keywords By Movie Id/GetKeywordsByMovieId";
 import { MovieCastsReducer } from "./Get Movie Cast By Movie Id/GetMovieCastByMovieId";
 import { MovieDataWithImdbIdReducer } from "./Get Movie Data With imdb Id/GetMovieDataWithImdbId";
+import { MovieMoreLikeThisReducer } from "./Get Movie More Like This By Movie Id/GetMovieMoreLikeThis";
 import { MovieNewsWithImdbIdReducer } from "./Get Movie News By Imdb Id/GetMovieNewsByImdbId";
 import { MovieSynopsesWithImdbIdReducer } from "./Get Movie Synopses With Imdb Id/GetMovieSynopsesWithImdbId";
 import { PopularMoviesReducer } from "./Popular Movies/PopularMoviesReducer";
@@ -37,6 +38,7 @@ const store = configureStore({
         MovieNewsWithImdbId : MovieNewsWithImdbIdReducer,
         MovieCasts : MovieCastsReducer,
         MovieKeywordsWithMovieId : MovieKeywordsWithMovieIdReducer,
+        MovieMoreLikeThis : MovieMoreLikeThisReducer,
     }
 })
 export default store
