@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getAsyncGetMovieCastByImdbId = createAsyncThunk("Movies/GetMovieCastsByImdbId" , async(movieId ,{rejectWithValue,dispatch}) => {
-    console.log(movieId)
     try {
         const endPoint = `https://data-imdb1.p.rapidapi.com/movie/id/${movieId}/cast/`
         const AsyncMovieCasts_list = await axios.get(endPoint ,{
@@ -19,7 +18,6 @@ export const getAsyncGetMovieCastByImdbId = createAsyncThunk("Movies/GetMovieCas
 })
 
 const getAsyncCastBio = createAsyncThunk("Movies/GetMovieCastsByImdbId" , async(imdbId_list ,{rejectWithValue}) => {
-    console.log(imdbId_list)
     try {
         const AsyncActoreBio = await axios.all(imdbId_list.map(cast => {
             return  axios.get(`https://data-imdb1.p.rapidapi.com/actor/id/${cast.actor.imdb_id}/`,{
@@ -43,7 +41,6 @@ const MovieCasts = createSlice({
             return {castData : [] , castError : null , castLoading : true}
         },
         [getAsyncGetMovieCastByImdbId.fulfilled] : ( state , action ) => {
-            console.log("action.payload < ",action.payload)
             return {castData : action.payload , castError : null , castLoading : false}
         },
         [getAsyncGetMovieCastByImdbId.rejected] : ( state , action ) => {
