@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const getAsyncBestMoviesByHistory = createAsyncThunk("Movies/BestHistoryMoviesAsync" , async(count ,{rejectWithValue,dispatch}) => {
     try {
-        const endPoint = `https://data-imdb1.p.rapidapi.com/movie/byYear/2020/byGen/History/`
+        const endPoint = `https://data-imdb1.p.rapidapi.com/movie/byYear/2021/byGen/History/`
         const AsyncBestHistoryMovies_list = await axios.get(endPoint ,{
             params: {page_size: count},
             headers: {
