@@ -25,9 +25,9 @@ const Keywords = () => {
             <footer className={Styles.footer}>
                 {error && <p className={Styles.error}>{error}</p>}
                 {data && data.length > 0 ? (
-                    data.map(item => {
+                    data.map((item,index) => {
                         return(
-                            <section className={Styles.group}>
+                            <section className={Styles.group} key={index}>
                                 <span className={Styles.groupTitle}>
                                     {item.keyword}
                                     <BiChevronRight className={Styles.groupTitleIcon} size={"23px"}/>
