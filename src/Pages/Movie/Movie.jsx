@@ -1,8 +1,8 @@
-import NavTabs from '../../Components/Movie/Tab/NavTab'
+import Main from '../../Components/Movie/Main';
 const MoviePage = () => {
     return (
         <>
-            <NavTabs/>
+            <Main/>
         </>  
     );
 }
