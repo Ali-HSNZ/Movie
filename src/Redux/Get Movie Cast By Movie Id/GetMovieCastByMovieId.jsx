@@ -10,7 +10,11 @@ export const getAsyncGetMovieCastByImdbId = createAsyncThunk("Movies/GetMovieCas
                 'x-rapidapi-key': '423451439cmsh37b65307257e1d8p1f2fdajsn7ec4491007b3'
             },
         })
-        const AsyncMovieCastsData = AsyncMovieCasts_list.data.results.roles.length > 20 ? AsyncMovieCasts_list.data.results.roles.slice(0,20) : AsyncMovieCasts_list.data.results.roles
+
+        const resultsData = AsyncMovieCasts_list.data.results.roles;
+
+        const AsyncMovieCastsData = resultsData && resultsData.length > 9 ? resultsData.slice(0,9) : resultsData
+        
         dispatch(getAsyncCastBio(AsyncMovieCastsData))
     } catch (error) {
         return rejectWithValue(error.message)
