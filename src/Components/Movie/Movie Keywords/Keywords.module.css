@@ -1,0 +1,45 @@
+.parent{
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+
+}
+.title{
+    font-family: "Open Sans light";
+    font-weight: 100;
+    font-size: 20px;
+    color: #cab600;
+}
+.footer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-top: 10px;
+}
+.group{
+    background-color: #242436;
+    margin-top: 10px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 3px 20px 20px 3px;
+    cursor: pointer;
+    margin-right: 10px;
+
+}
+.group:hover{
+    transform: scale(1.050);
+}
+.group:hover .groupTitleIcon{
+    color: #cab600;
+}
+.groupTitle{
+    color: rgb(187, 187, 187);
+    font-family: "Open Sans light";
+    display: flex;
+    align-items: center;
+}
+.error{
+    color: rgb(255, 27, 27);
+    font-family: "Open Sans light";
+}

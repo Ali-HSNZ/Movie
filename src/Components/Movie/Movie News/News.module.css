@@ -1,0 +1,31 @@
+.parent{
+    width:100%;
+    margin-top: 20px;
+}
+
+.titleParnet{
+    display: flex;
+    justify-content: space-between;
+    font-family: "Open Sans light";
+    font-weight: 100;
+}
+.titleParnet a {
+    color: #cab600;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    text-decoration: none;
+}
+.title{
+    font-family: "Open Sans light";
+    font-weight: 100;
+    font-size: 20px;
+    color: #cab600;
+}
+.movieItem{
+    margin-top: 20px;
+}
+.error{
+    color: rgb(255, 27, 27);
+    font-family: "Open Sans light";
+}
