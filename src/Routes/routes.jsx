@@ -4,7 +4,7 @@ import SerialPage from "../Pages/Serial/Serial"
 
  const pageRoutes = [
     {id : 1 , path : "/" , element : <Home/> },
-    {id : 2 , path : "/movie/*" , element : <MoviePage/> },
+    {id : 2 , path : "/movie/" , element : <MoviePage/> },
     {id : 3 , path : "/serial/*" , element : <SerialPage/> },
 ]
 export default pageRoutes
