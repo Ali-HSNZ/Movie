@@ -5,7 +5,7 @@
     overflow: hidden;
 }
 .slider_slideGenreBanner:hover{
-    transform: scale(1.007);
+    transform: scale(1.009);
 }
 .slider_slideGenreBanner .swiper-button-next {right: 4px;}
 .slider_slideGenreBanner .swiper-button-prev {left: 4px;}
