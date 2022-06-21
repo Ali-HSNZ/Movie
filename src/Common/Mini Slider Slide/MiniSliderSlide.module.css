@@ -2,9 +2,8 @@
     text-decoration: none;
 }
 .sliderSlideParent:hover  .movieDetail{
-    transition-delay:  0.3s;
-    opacity: 1;
-    transition-duration: 0.3s;
+
+   opacity: 1;
 }
 .sliderSlideParent:hover .sliderSlideImg{
     transform: scale(1.020);
@@ -38,6 +37,7 @@
     opacity: 0;
     cursor: pointer;
     border-radius: 3px;
+    transition: 0.3s;
 }
 .movieInfo{
     width: 100%;
