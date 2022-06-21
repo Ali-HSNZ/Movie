@@ -30,7 +30,7 @@
 }
 .parentDiv:nth-child(1) .parentDivChildren{
     background-image: url('../../../../images/yodha_sidharth_malhotra_poster__ccexpress (1).jpeg');
-   background-repeat: no-repeat;
+    background-repeat: no-repeat;
     background-size: cover ;
 }
 .parentDiv:nth-child(2) .parentDivChildren{
@@ -40,13 +40,13 @@
     background-image: url('../../../../images/19121405-hometown-cha_cover_1500x892_ccexpress.jpeg');
 }
 .parentDivChildren:hover{
-    transform: scale(1.0090);
+    transform: scale(1.018);
 }
 .parentDivChildren div{
     width: 100%;
     height: 100%;
     background-color: rgba(7, 7, 7, 0.521);
-    transform: rotate(-9.60deg);
+    transform: rotate(-12deg);
     position: relative;
     top: 64px;
     left: 15px;
@@ -60,6 +60,6 @@
     color: rgb(255, 255, 255);
     bottom: 20px;
     right:20px;
-    transform: rotate(9.60deg);
+    transform: rotate(12deg);
 
 }
