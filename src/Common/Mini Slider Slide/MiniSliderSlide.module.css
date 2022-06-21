@@ -2,8 +2,7 @@
     text-decoration: none;
 }
 .sliderSlideParent:hover  .movieDetail{
-
-   opacity: 1;
+    opacity: 1;
 }
 .sliderSlideParent:hover .sliderSlideImg{
     transform: scale(1.020);
