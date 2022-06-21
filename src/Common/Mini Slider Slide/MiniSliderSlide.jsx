@@ -24,7 +24,7 @@ const MiniSliderSlideCommon = ({movie}) => {
                 </div>
                 <div className={Styles.movieInfo}>
                     <span className={Styles.movieInfo_title}>Release:</span>
-                    <span className={Styles.movieInfo_detaill}> {movie.release}</span>
+                    <span className={Styles.movieInfo_detaill}> {movie.release? movie.release.replaceAll('-','/') : "Unknown"}</span>
                 </div>
                 <div className={Styles.movieInfo}>
                     <span className={Styles.movieInfo_title}>Gen: </span>
