@@ -8,9 +8,7 @@ const Navigation = () => {
 
             <div className={Styles.left}>
 
-                <div className={Styles.logoParent}>
-                    <NavLink to='/' className={Styles.logoParent_title}>IMDB</NavLink>    
-                </div>
+                <NavLink to='/' className={Styles.logoParent_title}>IMDB</NavLink>    
 
                 <div className={Styles.searchParent}>
                     <input type='text' placeholder='Search The Movie Name'/>
