@@ -9,7 +9,7 @@ const Navigation = () => {
             <div className={Styles.left}>
 
                 <div className={Styles.logoParent}>
-                    <div>IMDB</div>    
+                    <NavLink to='/' className={Styles.logoParent_title}>IMDB</NavLink>    
                 </div>
 
                 <div className={Styles.searchParent}>
