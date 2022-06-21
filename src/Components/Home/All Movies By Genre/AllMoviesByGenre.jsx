@@ -41,9 +41,9 @@ const AllMoviesByGenre = () => {
                     // slashOne ==>  http://47.254.174.28/movie/byGen/
                     // slashTwo ==>  /?
                     // genreName ===> http://47.254.174.28/movie/byGen/   <Genre Name>     /? 
-                    const slashOne = genre.next.indexOf("byGen/"); 
-                    const slashTwo = genre.next.indexOf("/?"); 
-                    const genreName = genre.next.substring(slashOne +6, slashTwo)
+                    const slashOne = genre.next?.genre.next.indexOf("byGen/"); 
+                    const slashTwo = genre.next?.genre.next.indexOf("/?"); 
+                    const genreName = genre.next?.genre.next.substring(slashOne +6, slashTwo)
                     
                     return(
                         <div className={Styles.rowItem} key={index}>
