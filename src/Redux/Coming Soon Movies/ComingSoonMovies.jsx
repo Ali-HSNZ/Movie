@@ -5,9 +5,12 @@ import { imdb8_apiKey } from "../../Services/API_KEY";
 // get Coming Soon Movies
 export const getAsyncComingSoonMovies = createAsyncThunk("Movies/CommingSoonMovies",async(count,{rejectWithValue ,dispatch}) => {
     try {
+        // `${year}-${month}-${day}`
+
+
             const endPoint = "https://imdb8.p.rapidapi.com/title/get-coming-soon-movies"
             const comingSoonMoviesList = await axios.get(endPoint ,{
-                params : { today: '2022-07-27'}, 
+                params : { today: ''}, 
                 headers: {
                     'x-rapidapi-host': 'imdb8.p.rapidapi.com',
                     'x-rapidapi-key': imdb8_apiKey
