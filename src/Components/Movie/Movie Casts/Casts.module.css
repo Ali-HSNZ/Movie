@@ -65,14 +65,14 @@
     border:1px solid #C4AA0F;
 }
 .group hr{
-    border: 1px solid #363650;
+    border: 1px solid #4a4a69;
     margin:0 10px;
     height: 100%;
 }
 
 .title{
     padding: 0 10px 0 0;
-    color: #d8d8d8;
+
     font-family: "Open Sans";
     font-weight: 100;
     font-size: 15px;
@@ -81,4 +81,13 @@
 .error{
     color: rgb(255, 27, 27);
     font-family: "Open Sans light";
+}
+.cast_name{
+    color: #ffffff;
+    font-size: 13px;
+}
+.cast_starSign{
+    margin-top: 3px;
+    font-size: 13px;
+    color: #929292;
 }
