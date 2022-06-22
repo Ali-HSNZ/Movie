@@ -18,7 +18,7 @@ const {data , loading , error} = useSelector(state => state.comingSoonMovies)
     const dispatch = useDispatch()
     
     useEffect(()=>{
-        dispatch(getAsyncComingSoonMovies(3))
+        dispatch(getAsyncComingSoonMovies(1))
     },[])
 
     return (  
