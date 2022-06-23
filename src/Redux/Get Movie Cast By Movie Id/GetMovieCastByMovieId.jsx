@@ -13,7 +13,7 @@ export const getAsyncGetMovieCastByImdbId = createAsyncThunk("Movies/GetMovieCas
 
         const resultsData = AsyncMovieCasts_list.data.results.roles;
 
-        const AsyncMovieCastsData = resultsData && resultsData.length > 9 ? resultsData.slice(0,9) : resultsData
+        const AsyncMovieCastsData = resultsData && resultsData.length > 30 ? resultsData.slice(0,30) : resultsData
         
         dispatch(getAsyncCastBio(AsyncMovieCastsData))
     } catch (error) {
