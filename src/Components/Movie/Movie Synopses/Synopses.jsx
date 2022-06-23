@@ -14,9 +14,9 @@ const Synopses = () => {
         dispatch(getAsyncSynopsesDataWithImdbId(query))
     },[])
 
-    const [isfullSynopses ,setIsFullSynopses] = useState(true)
     const { synopsesData , synopsesError ,synopsesLoading } = useSelector(state => state.MovieSynopsesWithImdbId)
 
+    console.log(synopsesData)
     return (  
         <div className={Styles.parent}>
             {synopsesError && <p className={Styles.error}>{synopsesError}</p>}
@@ -24,11 +24,8 @@ const Synopses = () => {
                 <>
                     <h2 className={Styles.synopsesTitle}>Synopses : </h2>
                     <h5 className={Styles.text}>
-                        {isfullSynopses === true && synopsesData.text.length >=1100 && synopsesData.text.substring(0,1100)+"..."}
-                        {isfullSynopses === false && synopsesData.text}
-                        <button onClick={()=>setIsFullSynopses(!isfullSynopses)} className={Styles.readMoreBtn}>{isfullSynopses ? "More" : "Less"}</button>
+                        {synopsesData.text && synopsesData.text.length >=1100 ? synopsesData.text.substring(0,1100)+"..." : synopsesData.text}
                     </h5>
-                
                 </>
             ) :(
                 <>
