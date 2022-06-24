@@ -9,22 +9,20 @@ const genreList = [
 const GenreBanner = () => {
     return (  
         <div className={Styles.parent}>
-
-            {genreList.map(image => {
+            {genreList.map(genre => {
                 return(
-                    <div key={image.id} className={Styles.genre}  style={{
-                        background: `url('${image.imageSrc}')`,
+                    <div key={genre.id} className={Styles.genre}  style={{
+                        background: `url('${genre.imageSrc}')`,
                         backgroundPosition:'0px -30px',
                         backgroundSize:'',
                         backgroundRepeat:'no-repeat'
                     }}>
                         <div className={Styles.popUp}></div>
+                        <h4 className={Styles.genreTitle}>{genre.genre}</h4>
                     </div>
                 )
             })}
-
         </div>
     );
 }
- 
 export default GenreBanner;
