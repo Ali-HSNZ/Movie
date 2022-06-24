@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getAsyncSynopsesDataWithImdbId } from '../../../Redux/Get Movie Synopses With Imdb Id/GetMovieSynopsesWithImdbId'
 import { useQuery } from '../../../hooks/useQuery'
 
-const Synopses = () => {
+const Synopsis = () => {
 
     const dispatch = useDispatch()
     const query = useQuery().get("id")
@@ -51,4 +51,4 @@ const Synopses = () => {
         </div>
     );
 }
-export default Synopses
+export default Synopsis
