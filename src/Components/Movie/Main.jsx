@@ -1,5 +1,5 @@
 import MovieDetail from "./detail/MovieDetail"
-import News from "./Movie News/News"
+import News from "./news/News"
 import Casts from "./casts/Casts"
 import Synopses from "./Movie Synopses/Synopses"
 import Keywords from './keywords/Keywords'
