@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { imdb8_apiKey } from "../../Services/API_KEY";
 
 export const getAsyncBestMoviesByComedy = createAsyncThunk("Movies/BestComedyMoviesAsync" , async(action ,{rejectWithValue,dispatch}) => {
     try {
