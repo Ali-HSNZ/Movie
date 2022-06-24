@@ -8,15 +8,23 @@ import {useQuery} from '../../../hooks/useQuery'
 import { BiChevronRight } from "react-icons/bi";
 import { Skeleton } from '@mui/material';
 
+import {useLocation} from 'react-router-dom'
 
 const Keywords = () => {
+
+    const {pathname} = useLocation()
+
     const query = useQuery().get("id")
     const dispatch = useDispatch()
     const {data , error , loading} = useSelector(state => state.MovieKeywordsWithMovieId)
 
     useEffect(()=>{
-        dispatch(getAsyncMovieKeywordsWithMovieId(query))
-    },[])
+        if(pathname == '/movie'){
+            dispatch(getAsyncMovieKeywordsWithMovieId({page : 'movie' , query}))
+        }else if(pathname == '/serial'){
+            dispatch(getAsyncMovieKeywordsWithMovieId({page : 'serial' , query}))
+        }
+    },[query])
 
 
     return (  
