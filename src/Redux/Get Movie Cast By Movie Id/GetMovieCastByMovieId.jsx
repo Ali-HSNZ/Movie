@@ -1,21 +1,35 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getAsyncGetMovieCastByImdbId = createAsyncThunk("Movies/GetMovieCastsByImdbId" , async(movieId ,{rejectWithValue,dispatch}) => {
+export const getAsyncGetMovieCastByImdbId = createAsyncThunk("Movies/GetMovieCastsByImdbId" , async(data ,{rejectWithValue,dispatch}) => {
+    
+    const {page , query} = data
+    
     try {
-        const endPoint = `https://data-imdb1.p.rapidapi.com/movie/id/${movieId}/cast/`
-        const AsyncMovieCasts_list = await axios.get(endPoint ,{
-            headers: {
-                'x-rapidapi-host': 'data-imdb1.p.rapidapi.com',
-                'x-rapidapi-key': '423451439cmsh37b65307257e1d8p1f2fdajsn7ec4491007b3'
-            },
-        })
-
-        const resultsData = AsyncMovieCasts_list.data.results.roles;
-
-        const AsyncMovieCastsData = resultsData && resultsData.length > 30 ? resultsData.slice(0,30) : resultsData
-        
-        dispatch(getAsyncCastBio(AsyncMovieCastsData))
+        if(page === 'movie'){
+            const endPoint = `https://data-imdb1.p.rapidapi.com/movie/id/${query}/cast/`
+            const AsyncMovieCasts_list = await axios.get(endPoint ,{
+                headers: {
+                    'x-rapidapi-host': 'data-imdb1.p.rapidapi.com',
+                    'x-rapidapi-key': '423451439cmsh37b65307257e1d8p1f2fdajsn7ec4491007b3'
+                },
+            })
+            const resultsData = AsyncMovieCasts_list.data.results.roles;
+            const AsyncMovieCastsData = resultsData && resultsData.length > 30 ? resultsData.slice(0,30) : resultsData
+            dispatch(getAsyncCastBio(AsyncMovieCastsData))
+        }
+        else if(page === 'serial'){
+            const endPoint = `https://data-imdb1.p.rapidapi.com/series/id/${query}/cast/`
+            const AsyncMovieCasts_list = await axios.get(endPoint ,{
+                headers: {
+                    'x-rapidapi-host': 'data-imdb1.p.rapidapi.com',
+                    'x-rapidapi-key': '423451439cmsh37b65307257e1d8p1f2fdajsn7ec4491007b3'
+                },
+            })
+            const resultsData = AsyncMovieCasts_list.data.results.roles;
+            const AsyncMovieCastsData = resultsData && resultsData.length > 30 ? resultsData.slice(0,30) : resultsData
+            dispatch(getAsyncCastBio(AsyncMovieCastsData))
+        }
     } catch (error) {
         return rejectWithValue(error.message)
     }
