@@ -4,10 +4,10 @@ import { imdb8_apiKey } from "../../Services/API_KEY";
 
 export const  getAsyncNewsDataWithImdbId = createAsyncThunk("Movies/GetMovieNewsWithImdbId" , async(movieId ,{rejectWithValue}) => {    
     try {
-        const movieData = await axios.get(`https://imdb8.p.rapidapi.com/title/get-news`,{
+        const movieData = await axios.get(`https://online-movie-database.p.rapidapi.com/title/get-news`,{
             params: {tconst: `${movieId}` , limit: '50'},
             headers : {
-                'x-rapidapi-host': 'imdb8.p.rapidapi.com',
+                'x-rapidapi-host': 'online-movie-database.p.rapidapi.com',
                 'x-rapidapi-key': imdb8_apiKey
             }
         })
