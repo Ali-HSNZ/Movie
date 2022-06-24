@@ -1,4 +1,4 @@
-import MovieDetail from "./Movie Detail/MovieDetail"
+import MovieDetail from "./detail/MovieDetail"
 import News from "./Movie News/News"
 import Casts from "./casts/Casts"
 import Synopses from "./Movie Synopses/Synopses"
