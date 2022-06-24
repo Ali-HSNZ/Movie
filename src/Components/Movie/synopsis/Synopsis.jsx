@@ -1,4 +1,4 @@
-import Styles from './Synopses.module.css'
+import Styles from './Synopsis.module.css'
 import { Skeleton} from "@mui/material"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"

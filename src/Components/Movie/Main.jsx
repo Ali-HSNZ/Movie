@@ -1,7 +1,7 @@
 import MovieDetail from "./detail/MovieDetail"
 import News from "./news/News"
 import Casts from "./casts/Casts"
-import Synopses from "./Movie Synopses/Synopses"
+import Synopses from "./synopsis/Synopsis"
 import Keywords from './keywords/Keywords'
 import MoreLikeThis from './More like this/MoreLikeThis'
 import { useEffect } from "react"
