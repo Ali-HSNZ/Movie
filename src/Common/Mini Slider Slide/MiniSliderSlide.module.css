@@ -5,7 +5,7 @@
     opacity: 1;
 }
 .sliderSlideParent:hover .sliderSlideImg{
-    transform: scale(1.020);
+    transform: scale(1.030);
 }
 .sliderSlideImg{
     width: 215px;
