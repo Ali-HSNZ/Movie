@@ -2,16 +2,26 @@ import Styles from './MovieDetail.module.css'
 import { Skeleton} from "@mui/material"
 import { useDispatch, useSelector } from 'react-redux'
 import { useQuery } from '../../../hooks/useQuery'
-import { getAsyncMovieDataWithImdbId } from '../../../Redux/Get Movie Data With imdb Id/GetMovieDataWithImdbId'
-import { useEffect } from 'react'
 
-const MovieDetail = () => {
+import { getAsyncMovieDataWithImdbId } from '../../../Redux/Get Movie Data With imdb Id/GetMovieDataWithImdbId'
+
+import { useEffect } from 'react'
+import {useLocation} from 'react-router-dom'
+
+const MovieDetail = (props) => {
+
+    const {pathname} = useLocation()
 
     const query = useQuery().get("id")
 
     const dispatch = useDispatch()
+ 
     useEffect(()=>{
-        dispatch(getAsyncMovieDataWithImdbId(query))
+        if(pathname == '/movie'){
+            dispatch(getAsyncMovieDataWithImdbId({page : 'movie' , query}))
+        }else if(pathname == '/serial'){
+            dispatch(getAsyncMovieDataWithImdbId({page : 'serial' , query}))
+        }
     },[query])
 
     const { data , loading , error } = useSelector(state => state.MovieDataWithImdbId)
