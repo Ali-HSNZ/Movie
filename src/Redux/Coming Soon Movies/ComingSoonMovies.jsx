@@ -7,14 +7,15 @@ export const getAsyncComingSoonMovies = createAsyncThunk("Movies/CommingSoonMovi
     try {
 
 
-            const endPoint = "https://imdb8.p.rapidapi.com/title/get-coming-soon-movies"
+            const endPoint = "https://online-movie-database.p.rapidapi.com/title/get-coming-soon-movies"
             const comingSoonMoviesList = await axios.get(endPoint ,{
                 params : { today: '2022-02-09'}, 
                 headers: {
-                    'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-                    'x-rapidapi-key': imdb8_apiKey
-                },
+                    'X-RapidAPI-Key': imdb8_apiKey,
+                    'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
+                  }
             })
+
             return dispatch(getAsyncMovieDetail(comingSoonMoviesList.data.slice(0,count)))
     } catch (error) {
         return rejectWithValue(error.message)
@@ -26,12 +27,15 @@ export const getAsyncMovieDetail = createAsyncThunk("Movies/CommingSoonMovies",a
     
     try {
         const asyncData = await axios.all(getData.map(movie => {
-           const movieId = movie.id.replace("/title/",'').replace('/','');
-            return axios.get(`https://imdb8.p.rapidapi.com/title/get-images`,{
-                headers : {     
-                    'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-                    'x-rapidapi-key': imdb8_apiKey
-                },
+            const movieId = movie.id.replace("/title/",'').replace('/','');
+            
+            console.log("movieId is : ",movieId)
+
+            return axios.get(`https://online-movie-database.p.rapidapi.com/title/get-images`,{
+                headers: {
+                    'X-RapidAPI-Key': imdb8_apiKey,
+                    'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
+                  },
                 params : {tconst: movieId ,limit: '1'}
             })
         }))
