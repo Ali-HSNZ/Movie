@@ -5,15 +5,22 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { getAsyncGetMovieCastByImdbId } from '../../../Redux/Get Movie Cast By Movie Id/GetMovieCastByMovieId'
 import { useQuery } from '../../../hooks/useQuery'
+import {useLocation} from 'react-router-dom'
 
 const Casts = () => {
+
+    const {pathname} = useLocation()
     
     const query = useQuery().get("id")
 
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        dispatch(getAsyncGetMovieCastByImdbId(query))
+        if(pathname == '/movie'){
+            dispatch(getAsyncGetMovieCastByImdbId({page : 'movie' , query}))
+        }else if(pathname == '/serial'){
+            dispatch(getAsyncGetMovieCastByImdbId({page : 'serial' , query}))
+        }
     },[query])
 
     const {castData , castLoading , castError} = useSelector(state => state.MovieCasts)
