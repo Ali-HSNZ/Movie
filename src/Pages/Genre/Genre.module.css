@@ -1,0 +1,23 @@
+.parent{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(215px , 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-content: flex-start;
+}
+.miniSliderParent{
+    position: relative;
+}
+.pageTitle{
+    margin: 20px 0;
+    display: flex;
+    color: #A09000;
+    align-items: center;
+}
+.pageParent{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
