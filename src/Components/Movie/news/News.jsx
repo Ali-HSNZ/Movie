@@ -29,8 +29,8 @@ const News = () => {
     const [newsPageNum , setNewsPageNum] = useState(0)
     const numOfNewsOnPage = 6;
     const newsReaded = newsPageNum * numOfNewsOnPage;
-    const showNews = newsData && newsData.slice(newsReaded , newsReaded + numOfNewsOnPage) 
-    .map((item,index) => {
+    const pageCount = newsData ? Math.ceil(newsData.length / numOfNewsOnPage) : 0
+    const showNews = newsData && newsData.slice(newsReaded , newsReaded + numOfNewsOnPage).map((item,index) => {
         return (
             <Accordion key={index}>
                 <AccordionSummary
@@ -50,7 +50,6 @@ const News = () => {
             </Accordion>
         )
     })
-    const pageCount = newsData ? Math.floor(newsData.length / numOfNewsOnPage) : 0
 
 
     const useStyles = makeStyles(() =>({
