@@ -6,7 +6,7 @@ const MiniSliderSlideCommon = ({movie}) => {
     const movie_min = Math.floor(movie.movie_length % 60)
     return (  
         <Link className={Styles.sliderSlideParent} to={{pathname:movie.type === "movie" ? "/movie" : "/serial" , search:`id=${movie.imdb_id}`}}>
-            <img className={Styles.sliderSlideImg} src={`https://img.gs/knzwmsmxwd/268x215,quality=low/${movie.banner}`}/>
+            <img className={Styles.sliderSlideImg} src={`https://img.gs/knzwmsmxwd/268x215,quality=low/${movie.banner}`} loading='lazy' />
             <span className={Styles.movieTitle}>{movie.title.length >20 ?movie.title.substring(0,20)+"..." :movie.title}</span>
 
             <div className={Styles.movieDetail}>
