@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { imdb8_apiKey } from './../../Services/API_KEY';
 
 export const getAsyncBestMoviesByGenre = createAsyncThunk("Movies/BestGenreMoviesAsync" , async(data ,{rejectWithValue,dispatch}) => {
     
@@ -10,7 +11,7 @@ export const getAsyncBestMoviesByGenre = createAsyncThunk("Movies/BestGenreMovie
         const AsyncBestGenreMovies_list = await axios.get(endPoint ,{
             params: {genre: genre.toLowerCase(), limit: count},
             headers: {
-                'X-RapidAPI-Key': 'f70bf6109emsh0ee22b38fe0fe95p11d58cjsnb3d43883f074',
+                'X-RapidAPI-Key': `${imdb8_apiKey}`,
                 'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
               }
         })
