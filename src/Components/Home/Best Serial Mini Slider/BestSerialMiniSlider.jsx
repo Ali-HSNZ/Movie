@@ -1,24 +1,16 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import '../Mini Slider Style/MiniSlider.css'
 import Styles from '../Mini Slider Style/MiniSlider.module.css'
-
 import { AiFillCaretRight } from "react-icons/ai";
-
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAsyncPopularSeries } from "../../../Redux/Popular Series Tvs/PopularSeriesTvsReducer";
-
-
-// Slider ==>
+import { movieCount } from './../miniSliderSettings';
 import "swiper/css";
 import "swiper/css/free-mode"
-import SwiperCore, {
-    FreeMode,Navigation
-} from 'swiper';
+import SwiperCore, {FreeMode,Navigation} from 'swiper';
 import MiniSliderSlideCommon from "../../../Common/Mini Slider Slide/MiniSliderSlide";
 import {Skeleton } from "@mui/material";
-// <==  Slider 
 
 SwiperCore.use([FreeMode , Navigation]);
 
@@ -27,7 +19,7 @@ const BestSerialMiniSlider = () => {
     const dispatch = useDispatch()
     const {data , loading , error} = useSelector(state => state.popularSeriesTvs)
     
-    const NumOfvideos = 18;
+    const NumOfvideos = movieCount;
     useEffect(()=>{
         dispatch(getAsyncPopularSeries(NumOfvideos));
     },[])
