@@ -1,22 +1,18 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import '../Mini Slider Style/MiniSlider.css'
 import Styles from '../Mini Slider Style/MiniSlider.module.css'
-
 import { AiFillCaretRight } from "react-icons/ai";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAsyncBestMoviesByAnimation } from "../../../Redux/Best Animation Movies/BestAnimationMoviesReducer";
-
 import "swiper/css";
 import "swiper/css/free-mode"
-
 import SwiperCore, {
   FreeMode,Navigation
 } from 'swiper';
 import MiniSliderSlideCommon from "../../../Common/Mini Slider Slide/MiniSliderSlide";
 import { Skeleton } from "@mui/material";
+import { movieCount } from './../miniSliderSettings';
 
 SwiperCore.use([FreeMode , Navigation]);
 
@@ -25,7 +21,7 @@ const BestAnimationMiniSlider = () => {
     const {data , loading , error} = useSelector(state =>state.BestMoviesByAnimation)
     const dispatch = useDispatch()
 
-    const NumOfvideos = 18;
+    const NumOfvideos = movieCount;
     useEffect(()=>{
         dispatch(getAsyncBestMoviesByAnimation({byGenre : "Animation" , count : NumOfvideos}))
     },[])
