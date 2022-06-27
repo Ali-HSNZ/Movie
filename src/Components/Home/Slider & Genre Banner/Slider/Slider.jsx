@@ -1,16 +1,14 @@
 import Styles from './Slider.module.css'
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './manageSlider.css'
 import { useEffect } from 'react';
-
 import {getAsyncComingSoonMovies} from '../../../../Redux/Coming Soon Movies/ComingSoonMovies'
-
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { Skeleton } from '@mui/material';
+import {comingSoon_movieCount} from '../../miniSliderSettings'
 const Slider = () => {
 
 const {data , loading , error} = useSelector(state => state.comingSoonMovies)
@@ -18,7 +16,7 @@ const {data , loading , error} = useSelector(state => state.comingSoonMovies)
     const dispatch = useDispatch()
     
     useEffect(()=>{
-        dispatch(getAsyncComingSoonMovies(1))
+        dispatch(getAsyncComingSoonMovies(comingSoon_movieCount))
     },[])
 
     return (  
