@@ -1,8 +1,6 @@
 import Styles from './SliderGenreBanner.module.css'
-
 import GenreBanner from './GenreBanner/GenreBanner';
 import Slider from './Slider/Slider';
-
 
 const SliderGenreBanner = () => {
     return (  
@@ -12,5 +10,4 @@ const SliderGenreBanner = () => {
         </div>
     );
 }
- 
 export default SliderGenreBanner;
