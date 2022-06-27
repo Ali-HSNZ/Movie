@@ -1,20 +1,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import '../Mini Slider Style/MiniSlider.css'
 import Styles from '../Mini Slider Style/MiniSlider.module.css'
-
 import { AiFillCaretRight } from "react-icons/ai";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAsyncBestMoviesByWar } from "../../../Redux/Best War Movies/BestWarMoviesReducer";
-
+import { movieCount } from './../miniSliderSettings';
 import "swiper/css";
 import "swiper/css/free-mode"
-
-import SwiperCore, {
-  FreeMode,Navigation
-} from 'swiper';
+import SwiperCore, {FreeMode,Navigation} from 'swiper';
 import MiniSliderSlideCommon from "../../../Common/Mini Slider Slide/MiniSliderSlide";
 import { Skeleton } from "@mui/material";
 
@@ -24,7 +18,7 @@ const BestWarMovieMiniSlider = () => {
     const {data , error , loading} = useSelector(state => state.BestMoviesByWar)
     const dispatch = useDispatch()
 
-    const NumOfvideos = 18;
+    const NumOfvideos = movieCount;
     useEffect(()=>{
         dispatch(getAsyncBestMoviesByWar(NumOfvideos))
     },[])
