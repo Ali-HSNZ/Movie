@@ -1,19 +1,13 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import '../Mini Slider Style/MiniSlider.css'
 import Styles from '../Mini Slider Style/MiniSlider.module.css'
-
 import { AiFillCaretRight } from "react-icons/ai";
-
 import "swiper/css";
 import "swiper/css/free-mode"
-
-import SwiperCore, {
-  FreeMode,Navigation
-} from 'swiper';
+import SwiperCore, {FreeMode,Navigation} from 'swiper';
 import { useEffect } from "react";
 import { getAsyncPopularMovies } from "../../../Redux/Popular Movies/PopularMoviesReducer";
-
+import { movieCount } from './../miniSliderSettings';
 import { useDispatch , useSelector} from "react-redux";
 import MiniSliderSlideCommon from "../../../Common/Mini Slider Slide/MiniSliderSlide";
 import { Skeleton } from "@mui/material";
@@ -25,7 +19,7 @@ const BestMovieMiniSlider = () => {
 
     const {data , loading , error} = useSelector(state =>state.PopularMovies)
 
-    const NumOfvideos = 18;
+    const NumOfvideos = movieCount;
     useEffect(()=>{
         dispatch(getAsyncPopularMovies(NumOfvideos))
     },[])
