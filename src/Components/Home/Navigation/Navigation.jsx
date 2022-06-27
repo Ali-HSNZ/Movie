@@ -3,13 +3,9 @@ import Styles from './Navigation.module.css'
 import { BiSearch } from "react-icons/bi";
 const Navigation = () => {
     return (  
-       
         <div className={Styles.parent}>
-
             <div className={Styles.left}>
-
                 <NavLink to='/' className={Styles.logoParent_title}>IMDB</NavLink>    
-
                 <div className={Styles.searchParent}>
                     <input type='text' placeholder='Search The Movie Name'/>
                     <BiSearch className={Styles.inputSearchIcon} size='23px'/>
@@ -26,5 +22,4 @@ const Navigation = () => {
         </div>
     );
 }
- 
 export default Navigation;
