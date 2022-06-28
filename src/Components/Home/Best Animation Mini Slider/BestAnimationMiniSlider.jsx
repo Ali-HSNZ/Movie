@@ -13,6 +13,7 @@ import SwiperCore, {
 import MiniSliderSlideCommon from "../../../Common/Mini Slider Slide/MiniSliderSlide";
 import { Skeleton } from "@mui/material";
 import { movieCount } from './../miniSliderSettings';
+import { Link } from 'react-router-dom';
 
 SwiperCore.use([FreeMode , Navigation]);
 
@@ -21,14 +22,13 @@ const BestAnimationMiniSlider = () => {
     const {data , loading , error} = useSelector(state =>state.BestMoviesByAnimation)
     const dispatch = useDispatch()
 
-    const NumOfvideos = movieCount;
     useEffect(()=>{
-        dispatch(getAsyncBestMoviesByAnimation({byGenre : "Animation" , count : NumOfvideos}))
+        dispatch(getAsyncBestMoviesByAnimation({byGenre : "Animation" , count : movieCount}))
     },[])
 
     const renderSkeleton = ()=>{
         let content = [];
-        for (let index = 0; index < NumOfvideos; index++) {
+        for (let index = 0; index < movieCount; index++) {
             content.push(
                 <SwiperSlide key={index}>
                     <Skeleton  variant="rectangular" width={215} height={268} sx={{ bgcolor: "#1d1d2e" }}/>
@@ -43,7 +43,7 @@ const BestAnimationMiniSlider = () => {
     return (  
         <div className="slider_miniSlider">
             <div className={Styles.silderTitle}>
-                <a href="/">Best Animation Movie in 2021</a>
+                <Link to="/genre/Animation">Best Animation Movies</Link>
                 <AiFillCaretRight/>
             </div>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
