@@ -11,6 +11,7 @@ import "swiper/css/free-mode"
 import SwiperCore, {FreeMode,Navigation} from 'swiper';
 import MiniSliderSlideCommon from "../../../Common/Mini Slider Slide/MiniSliderSlide";
 import {Skeleton } from "@mui/material";
+import { Link } from 'react-router-dom';
 
 SwiperCore.use([FreeMode , Navigation]);
 
@@ -41,7 +42,8 @@ const BestSerialMiniSlider = () => {
     return (  
         <div className="slider_miniSlider">
             <div className={Styles.silderTitle}>
-                <a href="/">Popular Series TVs</a>
+                <Link to={{pathname : '/popular' , search : 'type=series'}}>Popular Series TVs</Link>
+
                 <AiFillCaretRight/>
             </div>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
