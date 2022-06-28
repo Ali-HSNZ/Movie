@@ -47,6 +47,7 @@
     cursor: pointer;
     margin-right: 10px;
     margin-top: 10px;
+    text-decoration: none;
 
 }
 .group:hover{
@@ -72,7 +73,6 @@
 
 .title{
     padding: 0 10px 0 0;
-
     font-family: "Open Sans";
     font-weight: 100;
     font-size: 15px;
