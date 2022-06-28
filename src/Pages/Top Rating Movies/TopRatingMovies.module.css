@@ -1,0 +1,84 @@
+.parent{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.pageTitle{
+    display: flex;
+    color: #A09000;
+    align-items: center;
+}
+.movieParent{
+    width: 100%;height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(400px , 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    margin-top: 20px;
+}
+
+.item , .itemSkeleton{
+    height: auto;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+.item{
+    background-color: rgb(20, 20, 20);
+    border: 10px solid #000000;
+    text-decoration: none;
+}
+.item:hover{
+    transform: scale(1.020);
+}
+.item_numberLine{
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+.item_line{
+    border: 1px solid rgb(219, 219, 0);
+    width: 1px;
+    height: 40px;
+    margin: 0 0 0 20px;
+}
+.desc{
+    width: 100%;
+    font-family: 'Open Sans light';
+    font-size: 14px;
+}
+.desc p{
+    margin: 7px 0;
+}
+.desc p:nth-child(2){
+    color: rgb(165, 165, 165);
+}
+.item_play{
+    width: 55px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(219, 219, 0);
+    cursor: pointer;
+}
+.error{
+    color: rgb(255, 27, 27);
+    font-family: "Open Sans light";
+}
+.loading{
+    color: green;
+    font-family: "Open Sans light";
+
+}
+
