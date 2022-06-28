@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAsyncRatingMovies } from "../../../Redux/Top Rating Movies/TopRatingMoviesReducer";
 import { Skeleton } from "@mui/material";
+import { Link } from 'react-router-dom';
 
 const TopMoviesRating = () => {
     const {data , loading , error} = useSelector(state => state.TopRatingMovies)
@@ -29,17 +30,18 @@ const TopMoviesRating = () => {
         <div className={Styles.parent}>
 
             <p className={Styles.title}>
-                Top Movies Rating
+                Top Rating Movies 
                 <AiFillCaretRight/>
             </p>
 
-            <div className={Styles.footer}>
+            <nav className={Styles.movieParent}>
 
                 {error && <p className={Styles.error}>{error}</p>}
                 {loading && renderSkeleton()}
                 {data ? data.map((movie,index) => {
                     return (
-                        <div className={Styles.item} key={index}>
+                        <Link className={Styles.item} to={{pathname: "/movie" , search:`id=${movie.imdb_id}`}}>
+
                             <div className={Styles.item_numberLine}>
                                 <p>{index+1}</p>
                                 <div className={Styles.item_line}></div>
@@ -49,12 +51,12 @@ const TopMoviesRating = () => {
                                 <p className={Styles.item_movieRating}>{movie.rating}</p>
                             </div>
                             <div className={Styles.item_play}>
-                                <BsFillCaretRightFill size='21px'/>
+                                <BsFillCaretRightFill size='23px'/>
                             </div>
-                        </div>
+                        </Link>
                     )
                 }) : renderSkeleton()}   
-            </div>
+            </nav>
         </div>
     );
 }
