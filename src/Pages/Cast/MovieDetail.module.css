@@ -1,0 +1,79 @@
+.movieTitleParent{
+    width: 100%;
+    height:auto;
+    margin-top: 20px;
+}
+.movieTitleParent h2{
+    color: #A09000;
+}
+.parent{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.imgParent{
+    width: auto;
+    height: auto;
+}
+.imgParent img{
+    border-radius: 5px;
+}
+.describtionParent{
+    width: 100%;
+    height: auto;
+    padding: 0 20px;
+}
+.describtionParent h4{
+    color: #c5c5c5;
+    font-size: 15px;
+    font-weight: 100;
+    font-family: "Open Sans light";
+    display: block;
+    line-height: 30px;
+}
+.propertiesParent{
+    min-width: 270px;
+    height: 100%;
+    border: 2px dashed #a09000;
+    border-radius: 3px;
+    background-color: #11111a;
+    padding: 0px 15px 15px 15px;
+}
+
+.propertiesGroup{
+    width: 100%;
+    margin-top: 15px;
+}
+.propertiesGroup_title , .propertiesGroup_detail{
+    font-family: "Open Sans light";
+    font-size: 15px;
+}
+.propertiesGroup_title{
+    color: #fff48c;
+}
+.propertiesGroup_detail{
+    color: rgb(219, 219, 219);
+}
+
+.trailerButton{
+    padding: 5px 10px;
+    background-color: #cebd29;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.trailerButton:nth-child(2){
+    margin-left: 5px;
+}
+.trailerSpan{
+    margin: 0 10px;
+    color: rgb(219, 219, 219);
+}
+.error{
+    color: rgb(255, 27, 27);
+    font-family: "Open Sans light";
+}
