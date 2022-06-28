@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { getAsyncGetMovieCastByImdbId } from '../../../Redux/Get Movie Cast By Movie Id/GetMovieCastByMovieId'
 import { useQuery } from '../../../hooks/useQuery'
-import {useLocation} from 'react-router-dom'
-
+import {useLocation , Link} from 'react-router-dom'
 const Casts = () => {
 
     const {pathname} = useLocation()
@@ -23,8 +22,12 @@ const Casts = () => {
         }
     },[query])
 
+
+
     const {castData , castLoading , castError} = useSelector(state => state.MovieCasts)
     
+    console.log(castData)
+
     return(
         <div className={Styles.parent}>
             {castError && <p className={Styles.error}>{castError}</p>}
@@ -37,7 +40,7 @@ const Casts = () => {
                     <div className={Styles.footer}>
                         {castData.map((cast,index) => {
                             return(
-                                <section className={Styles.group} key={index}>
+                                <Link to={{pathname:'/cast' , search:`actorId=${cast.imdb_id}`}} className={Styles.group} key={index}>
                                     <div className={Styles.imgParent}>
                                     {cast.image_url ?(
                                         <img  src={`https://img.gs/knzwmsmxwd/34x50,quality=low/${cast.image_url}`}/>
@@ -50,7 +53,7 @@ const Casts = () => {
                                         <p className={Styles.cast_name}>{cast.name}</p>
                                         <p className={Styles.cast_starSign}>{cast.star_sign == "" || cast.star_sign == "-" ? 'Unknown' : cast.star_sign}</p>
                                     </div>
-                                </section>
+                                </Link>
                             )
                         })}
                     </div>
