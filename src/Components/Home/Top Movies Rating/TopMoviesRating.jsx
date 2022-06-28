@@ -12,9 +12,12 @@ const TopMoviesRating = () => {
     const dispatch = useDispatch()
 
     const NumOfvideos = 9
+    useEffect(()=> {
+        window.scroll({top : 0})
+    },[])
     useEffect(()=>{
         dispatch(getAsyncRatingMovies(NumOfvideos))
-    },[])
+    },[NumOfvideos])
 
     const renderSkeleton = ()=>{
         let content = [];
@@ -29,10 +32,10 @@ const TopMoviesRating = () => {
     return (  
         <div className={Styles.parent}>
 
-            <p className={Styles.title}>
-                Top Rating Movies 
+            <nav className={Styles.title}>
+               <Link to={'/topRatingMovies'} >Top Rating Movies</Link> 
                 <AiFillCaretRight/>
-            </p>
+            </nav>
 
             <nav className={Styles.movieParent}>
 
