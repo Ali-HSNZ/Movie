@@ -14,8 +14,8 @@ const Navigation = () => {
             </div>
 
             <nav className={Styles.right}>
-                <NavLink to={{pathname:"/3"}} className={ ({isActive})=> isActive ? Styles.navLink : Styles.navLinkActive}>Coming Soon</NavLink>    
-                <NavLink to={{pathname:"/"}} className={ ({isActive})=> isActive ? Styles.navLink : Styles.navLinkActive}>Popular Series</NavLink>    
+                <NavLink to={{pathname:"/comingSoon"}} className={ ({isActive})=> isActive ? Styles.navLink : Styles.navLinkActive}>Coming Soon</NavLink>    
+                <NavLink to={{pathname:"/popularSeries"}} className={ ({isActive})=> isActive ? Styles.navLink : Styles.navLinkActive}>Popular Series</NavLink>    
                 <NavLink to={{pathname:"/4"}} className={ ({isActive})=> isActive ? Styles.navLink : Styles.navLinkActive}>Popular Movies</NavLink>    
             </nav>
            
