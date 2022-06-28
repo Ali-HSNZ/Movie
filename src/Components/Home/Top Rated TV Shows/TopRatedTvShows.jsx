@@ -1,17 +1,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import '../Mini Slider Style/MiniSlider.css'
 import Styles from '../Mini Slider Style/MiniSlider.module.css'
-
 import { AiFillCaretRight } from "react-icons/ai";
-
 import "swiper/css";
 import "swiper/css/free-mode"
-
-import SwiperCore, {
-  FreeMode,Navigation
-} from 'swiper';
-
+import SwiperCore, {FreeMode,Navigation} from 'swiper';
+import {movieCount} from '../miniSliderSettings'
 import { useDispatch } from "react-redux";
 import { getAsyncTopRatingTvShow } from "../../../Redux/Top Rating Tv Show/TopRatingTvShowReducer";
 import { useEffect } from "react";
@@ -26,14 +20,13 @@ const TopRatedTvShow = () => {
     const dispatch = useDispatch()
     const {data , loading , error} = useSelector(state => state.TopRatingTvShow)
 
-    const NumOfvideos = 18; 
     useEffect(()=>{
-        dispatch(getAsyncTopRatingTvShow(NumOfvideos))
+        dispatch(getAsyncTopRatingTvShow(movieCount))
     } , [])
 
     const renderSkeleton = ()=>{
         let content = [];
-        for (let index = 0; index < NumOfvideos; index++) {
+        for (let index = 0; index < movieCount; index++) {
             content.push(
                 <SwiperSlide key={index}>
                     <Skeleton  variant="rectangular" width={215} height={268} sx={{ bgcolor: "#1d1d2e" }}/>
