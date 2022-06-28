@@ -11,6 +11,7 @@ import { movieCount } from './../miniSliderSettings';
 import { useDispatch , useSelector} from "react-redux";
 import MiniSliderSlideCommon from "../../../Common/Mini Slider Slide/MiniSliderSlide";
 import { Skeleton } from "@mui/material";
+import { Link } from 'react-router-dom';
 
 SwiperCore.use([FreeMode , Navigation]);
 
@@ -19,14 +20,13 @@ const BestMovieMiniSlider = () => {
 
     const {data , loading , error} = useSelector(state =>state.PopularMovies)
 
-    const NumOfvideos = movieCount;
-    useEffect(()=>{
-        dispatch(getAsyncPopularMovies(NumOfvideos))
-    },[])
+    useEffect(() => {
+        dispatch(getAsyncPopularMovies({type : 'movie', count : 28}))
+    } ,[])
 
     const renderSkeleton = ()=>{
         let content = [];
-        for (let index = 0; index < NumOfvideos; index++) {
+        for (let index = 0; index < movieCount; index++) {
             content.push(
                 <SwiperSlide key={index}>
                     <Skeleton  variant="rectangular" width={215} height={268} sx={{ bgcolor: "#1d1d2e" }}/>
@@ -41,7 +41,8 @@ const BestMovieMiniSlider = () => {
     return (  
         <div className="slider_miniSlider">
             <div className={Styles.silderTitle}>
-                <a href="/">Popular Movies</a>
+                <Link to={{pathname : '/popular' , search : 'type=movie'}}>Popular Movies</Link>
+                
                 <AiFillCaretRight/>
             </div>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
