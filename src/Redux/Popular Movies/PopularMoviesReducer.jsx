@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getAsyncPopularMovies = createAsyncThunk("Movies/PopularMoviesAsync" , async(count ,{rejectWithValue,dispatch}) => {
+export const getAsyncPopularMovies = createAsyncThunk("Movies/PopularMoviesAsync" , async(data ,{rejectWithValue,dispatch}) => {
+    const {count , type} = data
     try {
-        const endPoint = "https://data-imdb1.p.rapidapi.com/movie/order/byPopularity/"
+        const endPoint = `https://data-imdb1.p.rapidapi.com/${type}/order/byPopularity/`
         const AsyncPopularMovies_list = await axios.get(endPoint ,{
             params : {page_size: count},
             headers: {
@@ -11,16 +12,18 @@ export const getAsyncPopularMovies = createAsyncThunk("Movies/PopularMoviesAsync
                 'x-rapidapi-key': '61398a6ee8msh0033ca9207b7556p1fdb09jsn1ea8d45f729a'
             },
         })
-        dispatch(getAsyncPopularMoviesByImdbId(AsyncPopularMovies_list.data.results))
+        dispatch(getAsyncPopularMoviesByImdbId({dataList : AsyncPopularMovies_list.data.results , type}))
     } catch (error) {
         return rejectWithValue(error.message)
     }
 })
 
-const getAsyncPopularMoviesByImdbId = createAsyncThunk("Movies/PopularMoviesAsync" , async(dataList ,{rejectWithValue}) => {
+const getAsyncPopularMoviesByImdbId = createAsyncThunk("Movies/PopularMoviesAsync" , async(data ,{rejectWithValue}) => {
+    const {dataList , type} = data
+
     try {
         const AsyncPopularMovies_MovieData = await axios.all(dataList.map(movie => {
-            return  axios.get(`https://data-imdb1.p.rapidapi.com/movie/id/${movie.imdb_id}/`,{
+            return  axios.get(`https://data-imdb1.p.rapidapi.com/${type}/id/${movie.imdb_id}/`,{
                 headers : {
                     'x-rapidapi-host': 'data-imdb1.p.rapidapi.com',
                     'x-rapidapi-key': '61398a6ee8msh0033ca9207b7556p1fdb09jsn1ea8d45f729a'
