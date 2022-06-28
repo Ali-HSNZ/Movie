@@ -60,7 +60,7 @@ const Genre = () => {
 
 
     useEffect(() => {
-        dispatch(getAsyncBestMoviesByGenre({genre : genreName , count : 50}))
+        dispatch(getAsyncBestMoviesByGenre({genre : genreName , count : 28}))
     } ,[genreName])
 
     useEffect(() => {
