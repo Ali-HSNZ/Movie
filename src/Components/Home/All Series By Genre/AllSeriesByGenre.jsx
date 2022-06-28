@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { getAsyncAllMoviesByGenres } from "../../../Redux/All Series By Genre/AllSeriesByGenre";
 import { Skeleton } from "@mui/material";
+import { Link } from 'react-router-dom';
 
 const AllSeriesByGenre = () => {
     
@@ -32,7 +33,6 @@ const AllSeriesByGenre = () => {
             <div className={Styles.header}>
                 <p className={Styles.headerTitle}>
                     All Series By Genres
-                    <AiFillCaretRight/>
                 </p>
             </div>
             <div className={Styles.footer}>
@@ -56,14 +56,15 @@ const AllSeriesByGenre = () => {
                                     <section className={Styles.genreLine}></section>
                                 </section>
                                 <p className={Styles.genreTitle}>{genreName}</p>
-                                <button className={Styles.genreSubmit}>Go</button>
+                                <Link to={`/genre/${genreName}`} className={Styles.genreSubmit}>Go</Link>
+
                             </div>
                             <span className={Styles.genreVidoeCount}>Movie : {genre.count}</span>
                         </div>
                     )
                 }) : renderSkeleton()}
             </div>
-            {data && data.length !== 0 ? <div className={Styles.cover}><a href="/">Load More</a></div> : null}
+            {data && data.length !== 0 ? <div className={Styles.cover}><Link to="/allSeriesByGenre">Load More</Link></div> : null}
         </div>
     );
 }
