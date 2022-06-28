@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { getAsyncAllMoviesByGenre } from "../../../Redux/All Movies by Genres/AllMoviesByGenres";
 import { useSelector } from "react-redux";
 import { Skeleton } from "@mui/material";
+import { Link } from 'react-router-dom';
 
 const AllMoviesByGenre = () => {
     
@@ -25,6 +26,7 @@ const AllMoviesByGenre = () => {
     }
     const {data , loading , error} = useSelector(state => state.AllMoviesByGenre)
 
+
     return (  
         <div className={Styles.parent}>
             <div className={Styles.header}>
@@ -39,8 +41,8 @@ const AllMoviesByGenre = () => {
                 {data ? data.map((genre,index) => {
 
                     // slashOne ==>  http://47.254.174.28/movie/byGen/
-                    // slashTwo ==>  /?
-                    // genreName ===> http://47.254.174.28/movie/byGen/   <Genre Name>     /? 
+                    // slashTwo ==>  /...
+                    // genreName ===> http://47.254.174.28/movie/byGen/   <Genre Name>     /...
                     const slashOne = genre.links.next && genre.links.next.indexOf("byGen/")
                     const slashTwo = genre.links.next && genre.links.next.indexOf("/?")
                     const genreName = genre.links.next && genre.links.next.substring(slashOne +6, slashTwo)
@@ -54,7 +56,7 @@ const AllMoviesByGenre = () => {
                                 </section>
                                 
                                 <p className={Styles.genreTitle}>{genreName}</p>
-                                <button className={Styles.genreSubmit}>Go</button>
+                                <Link to={`/genre/${genreName}`} className={Styles.genreSubmit}>Go</Link>
                             </div>
                             <span className={Styles.genreVidoeCount}>Movie : {genre.count}</span>
                         </div>
