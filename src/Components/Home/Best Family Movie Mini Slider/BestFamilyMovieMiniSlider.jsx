@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { getAsyncBestMoviesByFamily } from "../../../Redux/Best Family Movies/BestFamilyMovies";
 import MiniSliderSlideCommon from "../../../Common/Mini Slider Slide/MiniSliderSlide";
 import { Skeleton } from "@mui/material";
+import { Link } from 'react-router-dom';
 
 SwiperCore.use([FreeMode , Navigation]);
 
@@ -20,14 +21,13 @@ const BestFamilyMovieMiniSlider = () => {
     const dispatch = useDispatch()
     const {data , loading , error} = useSelector(state => state.BestMoviesByFamily)
 
-    const NumOfvideos = movieCount;
     useEffect(()=>{
-        dispatch(getAsyncBestMoviesByFamily(NumOfvideos))
+        dispatch(getAsyncBestMoviesByFamily(movieCount))
     },[])
 
     const renderSkeleton = ()=>{
         let content = [];
-        for (let index = 0; index < NumOfvideos; index++) {
+        for (let index = 0; index < movieCount; index++) {
             content.push(
                 <SwiperSlide key={index}>
                     <Skeleton  variant="rectangular" width={215} height={268} sx={{ bgcolor: "#1d1d2e" }}/>
@@ -41,10 +41,10 @@ const BestFamilyMovieMiniSlider = () => {
 
     return (  
         <div className="slider_miniSlider">
-            <div className={Styles.silderTitle}>
-                <a  href="#">Best Family Movies</a>
+            <nav className={Styles.silderTitle}>
+                <Link  to="/genre/Family">Best Family Movies</Link>
                 <AiFillCaretRight/>
-            </div>
+            </nav>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
                 {loading && renderSkeleton()}
                 {error && <p className={Styles.error}>{error}</p>}
