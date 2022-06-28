@@ -8,9 +8,14 @@
     margin-top: 20px;
 }
 .title{
-    color: rgb(219, 219, 0);
     display: flex;
+    color: rgb(219, 219, 0);
+
     align-items: center;
+}
+.title a{
+    color: rgb(219, 219, 0);
+    text-decoration: none;
     cursor: pointer;
 }
 .movieParent{
