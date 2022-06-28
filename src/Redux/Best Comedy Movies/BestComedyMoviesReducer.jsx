@@ -2,10 +2,10 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getAsyncBestMoviesByComedy = createAsyncThunk("Movies/BestComedyMoviesAsync" , async(action ,{rejectWithValue,dispatch}) => {
-    try {
-        const {byGenre , count} = action
-
-        const endPoint = `https://data-imdb1.p.rapidapi.com/movie/byYear/2021/byGen/${byGenre}/`
+    
+    const {genre , count} = action
+    try {    
+        const endPoint = `https://data-imdb1.p.rapidapi.com/movie/byYear/2021/byGen/${genre}/`
         const AsyncBestComedyMovies_list = await axios.get(endPoint ,{
             params: {page_size: count},
             headers: {
