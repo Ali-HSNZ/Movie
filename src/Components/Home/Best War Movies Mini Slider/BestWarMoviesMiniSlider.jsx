@@ -11,6 +11,7 @@ import "swiper/css/free-mode"
 import SwiperCore, {FreeMode,Navigation} from 'swiper';
 import MiniSliderSlideCommon from "../../../Common/Mini Slider Slide/MiniSliderSlide";
 import { Skeleton } from "@mui/material";
+import { Link } from 'react-router-dom';
 
 SwiperCore.use([FreeMode , Navigation]);
 
@@ -18,14 +19,13 @@ const BestWarMovieMiniSlider = () => {
     const {data , error , loading} = useSelector(state => state.BestMoviesByWar)
     const dispatch = useDispatch()
 
-    const NumOfvideos = movieCount;
     useEffect(()=>{
-        dispatch(getAsyncBestMoviesByWar(NumOfvideos))
+        dispatch(getAsyncBestMoviesByWar(movieCount))
     },[])
 
     const renderSkeleton = ()=>{
         let content = [];
-        for (let index = 0; index < NumOfvideos; index++) {
+        for (let index = 0; index < movieCount; index++) {
             content.push(
                 <SwiperSlide key={index}>
                     <Skeleton  variant="rectangular" width={215} height={268} sx={{ bgcolor: "#1d1d2e" }}/>
@@ -39,10 +39,10 @@ const BestWarMovieMiniSlider = () => {
 
     return (  
         <div className="slider_miniSlider">
-            <div className={Styles.silderTitle}>
-                <a  href="#">Best War Movies</a>
+            <nav className={Styles.silderTitle}>
+                <Link  to="genre/War">Best War Movies</Link>
                 <AiFillCaretRight/>
-            </div>
+            </nav>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
                 {loading && renderSkeleton()}
                 {error && <p className={Styles.error}>{error}</p>}
