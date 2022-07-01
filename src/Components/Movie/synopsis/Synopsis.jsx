@@ -16,7 +16,6 @@ const Synopsis = () => {
 
     const { synopsesData , synopsesError ,synopsesLoading } = useSelector(state => state.MovieSynopsesWithImdbId)
 
-    console.log(synopsesData)
     return (  
         <div className={Styles.parent}>
             {synopsesError && <p className={Styles.error}>{synopsesError}</p>}
