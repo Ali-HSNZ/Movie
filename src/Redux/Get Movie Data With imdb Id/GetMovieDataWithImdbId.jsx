@@ -36,7 +36,6 @@ const MovieDataWithImdbId = createSlice({
             return {data : [] , error : null , loading : true}
         },
         [getAsyncMovieDataWithImdbId.fulfilled] : ( state , action ) => {
-            console.log("action : ",action.payload)
             return {data : action.payload , error : null , loading : false}
         },
         [getAsyncMovieDataWithImdbId.rejected] : ( state , action ) => {
