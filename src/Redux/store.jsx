@@ -18,6 +18,8 @@ import { MovieMoreLikeThisReducer } from "./Get Movie More Like This By Movie Id
 import { MovieNewsWithImdbIdReducer } from "./Get Movie News By Imdb Id/GetMovieNewsByImdbId";
 import { MovieSynopsesWithImdbIdReducer } from "./Get Movie Synopses With Imdb Id/GetMovieSynopsesWithImdbId";
 import { BestMoviesByGenreReducer } from "./Get Movies By Genre/GetMovieByGenre";
+import { getMoviesByKeywordReducer } from "./Get Movies By Keyword/GetMoviesByKeyword";
+import { getSeriesByKeywordReducer } from "./Get Series By Keyword/GetSeriesByKeyword";
 import { PopularMoviesReducer } from "./Popular Movies/PopularMoviesReducer";
 import { PopularSeriesTvsReducer } from "./Popular Series Tvs/PopularSeriesTvsReducer";
 import { TopRatingMoviesReducer } from "./Top Rating Movies/TopRatingMoviesReducer";
@@ -49,6 +51,8 @@ const store = configureStore({
         getActorMovies : getActorMoviesReducer,
         GetActorAwards : GetActorAwardsReducer,
         getActorSeries : getActorSeriesReducer,
+        getMoviesByKeyword : getMoviesByKeywordReducer,
+        getSeriesByKeyword : getSeriesByKeywordReducer
     }
 })
 export default store
