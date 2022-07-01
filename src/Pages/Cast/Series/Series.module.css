@@ -1,0 +1,23 @@
+.parent{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+.movieParent{
+    width: 100%;
+    display: grid;
+    margin-top: 20px;
+    grid-template-columns: repeat(auto-fill , minmax(215px , 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-content: flex-start;
+}
+.miniSliderParent{
+    position: relative;
+}
+.title{
+    font-family: "Open Sans light";
+    font-weight: 100;
+    font-size: 20px;
+    color: #cab600;
+}
