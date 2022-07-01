@@ -1,4 +1,7 @@
 .parent{
+    display: flex;
+}
+.movieParent{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit , minmax(215px , 1fr));
