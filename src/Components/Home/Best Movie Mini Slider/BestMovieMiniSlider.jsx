@@ -21,7 +21,7 @@ const BestMovieMiniSlider = () => {
     const {data , loading , error} = useSelector(state =>state.PopularMovies)
 
     useEffect(() => {
-        dispatch(getAsyncPopularMovies({type : 'movie', count : 28}))
+        dispatch(getAsyncPopularMovies({type : 'movie', count : movieCount}))
     } ,[])
 
     const renderSkeleton = ()=>{
