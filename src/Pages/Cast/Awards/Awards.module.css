@@ -1,0 +1,50 @@
+.parent{
+    width: 100%;
+    height: auto;
+    margin-top: 20px
+}
+.awardsParent{
+    width: 100%;
+    display: grid;
+    margin-top: 20px;
+    grid-template-columns: repeat(auto-fill , minmax(450px , 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-content: flex-start;
+}
+.award{
+    background-color: rgb(34, 34, 46);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    justify-content: space-between;
+    font-size: 15px;
+    padding: 10px 20px;
+    line-height: 35px;
+}
+.award hr{
+    border: 2px solid rgb(24, 24, 36);
+    margin: 5px 0;
+}
+.award a {
+    color: #fff27a;
+}
+.awardTitle{
+    color: #fff6a4;
+}
+.awardTitleParent{
+    display: flex;
+    justify-content: space-between;
+}
+.awardTitle_type{
+    color: #ffe600;
+
+}
+
+.title{
+    font-family: "Open Sans light";
+    font-weight: 100;
+    font-size: 20px;
+    color: #cab600;
+}
