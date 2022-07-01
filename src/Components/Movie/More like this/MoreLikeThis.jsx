@@ -52,15 +52,13 @@ const MoreLikeThis = () => {
         <div className="slider_miniSlider">
             
             <div className={Styles.silderTitle}>
-                {loading ? (
+                {loading && (
                     <>
                         <Skeleton variant='rectangular' height={25} sx={{ bgcolor: "#1d1d2e"  , minWidth : "200px"}}/>
                         <Skeleton variant='rectangular' height={25} sx={{ bgcolor: "#181824"  , minWidth : "10px"}}/>
                     </>
-                ) :  (
-                    <h1 className={SliderStyles.sliderTitle} href="/">More Like This :</h1>
                 )}
-               
+                {data && data.length > 0 &&   <h1 className={SliderStyles.sliderTitle} href="/">More Like This :</h1>}
             </div>
             <Swiper slidesPerView={6} spaceBetween={10} navigation freeMode={true}>
                 {loading && renderSkeleton()}
