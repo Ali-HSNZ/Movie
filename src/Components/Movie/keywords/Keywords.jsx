@@ -8,7 +8,8 @@ import {useQuery} from '../../../hooks/useQuery'
 import { BiChevronRight } from "react-icons/bi";
 import { Skeleton } from '@mui/material';
 
-import {useLocation} from 'react-router-dom'
+import {useLocation , Link} from 'react-router-dom'
+
 
 const Keywords = () => {
 
@@ -35,12 +36,12 @@ const Keywords = () => {
                 {data && data.length > 0 ? (
                     data.map((item,index) => {
                         return(
-                            <section className={Styles.group} key={index}>
+                            <Link to={{pathname:'/keyword' , search:`name=${item.keyword}`}} className={Styles.group} key={index}>
                                 <span className={Styles.groupTitle}>
                                     {item.keyword}
                                     <BiChevronRight className={Styles.groupTitleIcon} size={"23px"}/>
                                 </span>
-                            </section>
+                            </Link>
                         )
                     })
                 ) : (
