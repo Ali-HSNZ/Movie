@@ -3,7 +3,7 @@ import { AiFillCaretRight } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { getAsyncAllMoviesByGenres } from "../../Redux/All Series By Genre/AllSeriesByGenre";
+import { getAsyncAllSeriesByGenres } from "../../Redux/All Series By Genre/AllSeriesByGenre";
 import { Skeleton } from "@mui/material";
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -20,7 +20,7 @@ const AllSeriesByGenre = () => {
         window.scroll({top : 0 , behavior : 'smooth'})
     } ,[location])
     useEffect(()=>{
-        dispatch(getAsyncAllMoviesByGenres(NumOfvideos))
+        dispatch(getAsyncAllSeriesByGenres(NumOfvideos))
     },[])
 
     const {data , loading , error} = useSelector(state => state.AllSeriesByGenres)
