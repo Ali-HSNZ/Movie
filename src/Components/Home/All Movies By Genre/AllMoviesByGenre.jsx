@@ -64,7 +64,7 @@ const AllMoviesByGenre = () => {
                 }) : renderSkeleton()}
             </div>
 
-            {data && data.length !== 0 ? <div className={Styles.cover}><a href="/">Load More</a></div> : null}
+            {data && data.length !== 0 ? <div className={Styles.cover}><Link to="/allMoviesByGenre">Load More</Link></div> : null}
         </div>
     );
 }
