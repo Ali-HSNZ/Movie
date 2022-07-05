@@ -101,7 +101,7 @@ const Genre = () => {
     return ( 
         <>
         <h2 className={Styles.pageTitle}>{genreName}</h2>
-        <div className={Styles.parent}>
+        <div className={Styles.movieParent}>
             {showMovie}
             {loading || data === undefined  ? renderSkeleton() : ""}
 
