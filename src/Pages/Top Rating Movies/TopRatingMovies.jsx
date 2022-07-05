@@ -15,6 +15,7 @@ const TopRatingMovies = () => {
 
     const movieCount = 20
     useEffect(()=>{
+        window.scroll({top : 0 , behavior : 'smooth'})
         dispatch(getAsyncRatingMovies(movieCount))
     },[])
 
