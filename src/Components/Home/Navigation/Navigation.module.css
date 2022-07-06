@@ -37,7 +37,7 @@
 
 }
 .searchParent button:hover{
-    transform: scale(1.030);
+    transform: scale(1.040);
 }
 .searchParent input{
     height: 35px;
@@ -76,7 +76,7 @@
     border-radius: 3px;
 }
 .navLink:hover , .navLinkActive:hover{
-    transform: scale(1.030);
+    transform: scale(1.040);
 } 
 .navLink{
     background-color: #13161b;
