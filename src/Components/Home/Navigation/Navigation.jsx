@@ -14,9 +14,10 @@ const Navigation = () => {
             </div>
 
             <nav className={Styles.right}>
-                <NavLink to={{pathname:"/comingSoon"}} className={ ({isActive})=> isActive ? Styles.navLink : Styles.navLinkActive}>Coming Soon</NavLink>    
-                <NavLink to={{pathname:"/popularSeries"}} className={ ({isActive})=> isActive ? Styles.navLink : Styles.navLinkActive}>Popular Series</NavLink>    
-                <NavLink to={{pathname:"/4"}} className={ ({isActive})=> isActive ? Styles.navLink : Styles.navLinkActive}>Popular Movies</NavLink>    
+                <NavLink to={{pathname:"/aboutUs"}} className={ ({isActive})=> isActive ? Styles.navLink : Styles.navLinkActive}>About Us</NavLink>    
+                <NavLink to={{pathname:"/suport"}} className={ ({isActive})=> isActive ? Styles.navLink : Styles.navLinkActive}>Suport</NavLink>    
+                <NavLink to={{pathname:"/needHelp"}} className={ ({isActive})=> isActive ? Styles.navLink : Styles.navLinkActive}>Need Help?</NavLink>    
+                <NavLink to={{pathname:"/routeMap"}} className={ ({isActive})=> isActive ? Styles.navLink : Styles.navLinkActive}>Route Map</NavLink>    
             </nav>
            
         </div>
